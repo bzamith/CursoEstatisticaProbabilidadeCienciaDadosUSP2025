@@ -1,1 +1,0 @@
-# CursoEstatisticaProbabilidadeUSP2025

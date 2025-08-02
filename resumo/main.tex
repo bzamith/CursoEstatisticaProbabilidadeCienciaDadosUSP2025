@@ -1,0 +1,297 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref} % Para links no sumário
+
+\title{Fundamentos de Probabilidade e Estatística para Ciência de Dados}
+\author{Resumo das aulas do Prof. Dr. Francisco Rodrigues (ICMC-USP)}
+\date{Agosto de 2025}
+
+\begin{document}
+
+% Capa personalizada
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    {\scshape\LARGE Universidade de São Paulo \par}
+    \vspace{1cm}
+    {\scshape\Large Instituto de Ciências Matemáticas e de Computação\par}
+    \vspace{2.5cm}
+    {\huge\bfseries Fundamentos de Probabilidade e Estatística para Ciência de Dados\par}
+    \vspace{1cm}
+    {\Large Resumo das aulas do Prof. Dr. Francisco Rodrigues\par}
+    \vfill
+    {\Large Bruna Zamith Santos\par}
+    \vspace{0.5cm}
+    {\large Agosto de 2025\par}
+\end{titlepage}
+
+% Sumário
+\tableofcontents
+\newpage
+
+\section{Teoria dos Conjuntos}
+Sejam os conjuntos:
+\[
+A = \{1, 2, 4, 9\}, \quad B = \{3, 7, 9\}
+\]
+
+\begin{itemize}
+  \item União: $A \cup B = \{1, 2, 3, 4, 7, 9\}$
+  \item Interseção: $A \cap B = \{7, 9\}$
+  \item Complementar de $B$: $B^C = \{1, 2, 4\}$
+  \item Complementar de $A$: $A^C = \{3, 7\}$
+  \item Espaço amostral ($\Omega$): É o conjunto de todos os resultados possíveis de um experimento aleatório. Exemplo: $\Omega = \{1, 2, 3, 4, 5, 6\}$, ao lançar um dado.
+  \item Evento ($A$): É um subconjunto do espaço amostral. Exemplo: $A = \{2, 4, 6\}$
+  \item Evento impossível ($\emptyset$): É um evento que nunca ocorre.
+  \item Evento certo ($\Omega$): É o evento que sempre ocorre.
+  \item $A \cup B$: É o evento que ocorre se $A$ ou $B$ (ou ambos) ocorrerem.
+  \item $A \cap B$: É o evento que ocorre se $A$ e $B$ ocorrerem ao mesmo tempo.
+  \item $A^C$: É o evento que ocorre se $A$ não ocorre.
+  \item Eventos mutuamente exclusivos: Quando $A \cap B = \emptyset$.
+\end{itemize}
+
+\section{Experimento Aleatório}
+Um experimento aleatório é um experimento que pode ser repetido inúmeras vezes sob as mesmas condições, sendo o seu resultado incerto.
+
+\section{Conceitos de Probabilidade}
+Sejam $\Omega$ o espaço amostral e $A$ um evento em $\Omega$. Então, uma função $P(\cdot)$ é denominada probabilidade se satisfaz:
+\begin{itemize}
+    \item $0 \leq P(A) \leq 1$, $\forall A \in \Omega$ 
+    \item $P(\Omega) = 1$
+    \item Se $A_1, A_2, \dots$ forem eventos mutuamente exclusivos, isto é, $A_i \cap A_j = \emptyset$, $\forall i \neq j$, então:
+    $$
+    P\left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} P(A_i)
+    $$
+\end{itemize}
+
+Se um experimento aleatório tiver $n(\Omega)$ resultados mutuamente exclusivos e igualmente possíveis, e se um evento $A$ conter $n(A)$ desses resultados, a probabilidade de ocorrência desse evento é definida por:
+    $$
+    P(A) = \frac{n(A)}{n(\Omega)} = \frac{|A|}{|\Omega|}
+    $$
+
+Sejam $A$ e $B$ eventos em um mesmo espaço amostral, então:
+
+\begin{itemize}
+  \item $P(\emptyset) = 0$
+  \item $P(A) = 1 - P(A^C)$
+  \item Se $A \subseteq B$, então $P(A) \leq P(B)$
+\end{itemize}
+
+\subsection{Probabilidade Frequentista}
+A probabilidade de um evento é igual à sua frequência de ocorrência em um grande número de experimentos:
+    $$
+    P(A) = \lim_{n \to \infty} \frac{n_A}{n}
+    $$,
+onde $n_A$ é o número de vezes que o evento $A$ ocorre em $n$ experimentos.
+
+\subsection{Probabilidade de União de Dois Eventos}
+Para dois eventos $A$ e $B$ em um mesmo espaço amostral:
+    $$
+    P(A \cup B) = P(A) + P(B) - P(A \cap B)
+    $$
+
+\subsection{Probabilidade Condicional}
+
+Sejam dois eventos $A$ e $B$ em um mesmo espaço amostral $\Omega$.  
+A probabilidade condicional de $A$ dado que $B$ ocorreu é definida por:
+    $$
+    P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad \text{com } P(B) > 0
+    $$
+
+Assim, $A$ e $B$ são eventos independentes se, e somente se:
+    $$
+    P(A \cap B) = P(A) \cdot P(B)
+    $$
+
+Ou equivalentemente:
+    $$
+    P(A \mid B) = P(A) \quad \text{e} \quad P(B \mid A) = P(B)
+    $$
+
+\subsection{Partições do Espaço Amostral}
+Os eventos $B_1, B_2, \dots, B_n$ formam uma partição do espaço amostral $\Omega$ se:
+
+\begin{itemize}
+    \item $B_i \cap B_j = \emptyset$, para $i \neq j$, com $i, j = 1, \dots, n$
+    \item $\bigcup_{i=1}^n B_i = \Omega$
+    \item $P(B_i) \geq 0$, para $i = 1, \dots, n$
+\end{itemize}
+
+Seja $A$ um evento no espaço amostral $\Omega$ e seja $B_1, \dots, B_n$ uma partição amostral de $\Omega$. Podemos escrever $A$ considerando tal partição:
+    $$
+    A = \bigcup_{i=1}^n (A \cap B_i)
+    $$
+    $$
+    P(A) = P\left( \bigcup_{i=1}^n A \cap B_i \right) = \sum_{i=1}^n P(A \cap B_i)
+    $$
+
+Sejam $B_1, B_2, \dots, B_n$ uma partição do espaço amostral $\Omega$. Então, qualquer evento $A \subseteq \Omega$ pode ser escrito como:
+    $$
+    P(A) = \sum_{i=1}^n P(A \mid B_i) \cdot P(B_i)
+    $$
+
+\section{Teorema de Bayes}
+Sejam $B_1, B_2, \dots, B_n$ uma partição do espaço amostral $\Omega$, e $A$ um evento com $P(A) > 0$, então:
+    $$
+    P(B_i \mid A) = \frac{P(A \mid B_i) \cdot P(B_i)}{\sum_{j=1}^n P(A \mid B_j) \cdot P(B_j)}
+    $$
+
+E assim podemos definir:
+    $$
+    P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}
+    $$
+
+\section{Variáveis Aleatórias}
+Suponha que lancemos dois dados. O espaço amostral associado ao experimento, sendo os eventos $C$: ``sai uma cara'' e $R$: ``sai uma coroa'', é dado por:
+
+$$
+\Omega = \{CC, CR, RC, RR\}
+$$
+
+Uma possível variável aleatória associada ao experimento é definida por:
+$$
+X = \text{``número de caras obtido no experimento''}
+$$
+
+\begin{itemize}
+    \item Representamos variáveis aleatórias por letras maiúsculas ($X, Y, Z$), enquanto usamos letras minúsculas para indicar os valores das variáveis ($x, y, z$).
+    \item Se o número de valores possíveis de uma variável aleatória for finito ou infinito enumerável, dizemos que é uma variável aleatória discreta.
+    \item Caso contrário, é uma variável aleatória contínua.
+\end{itemize}
+
+A função que atribui a cada valor da variável aleatória sua respectiva probabilidade é chamada de distribuição de probabilidade:
+    $$
+    P(X = x_i) = p(x_i) = p_i, \quad i = 1,2,3
+    $$
+
+A distribuição de probabilidade também é chamada de função massa de probabilidade. E temos que:
+    $$
+    \sum_{i=1}^{n} P(X = x_i) = 1
+    $$
+
+Dizemos que $X$ é uma variável aleatória contínua se existir uma função $f$ denominada função densidade de probabilidade (fdp) que satisfaz:
+\begin{itemize}
+    \item $f(x) \geq 0, \quad \forall x \in \mathbb{R}$
+    \item $\int_{-\infty}^{\infty} f(x) \, dx = 1$
+    \item $P(a \leq X \leq b) = \int_{a}^{b} f(x) \, dx
+    $, $-\infty < a < b < \infty$
+    \item $f(x)$ é uma função com valores positivos e área unitária.
+\end{itemize}
+
+Seja $X$ uma variável aleatória discreta ou contínua. A probabilidade condicional de que $X \in S$ dado que $X \in V$ é:
+    $$
+    P(X \in S \mid X \in V) = \frac{P(X \in S \cap V)}{P(X \in V)}
+    $$,
+onde $S$ e $V$ são subconjuntos do espaço da variável.
+
+\section{Função de Distribuição}
+A função distribuição acumulada ou simplesmente função de distribuição de uma variável aleatória $X$ é definida por:
+    $$
+    F(x) = P(X \leq x)
+    $$
+
+Se discreta:
+    $$
+    F(x) = \sum_{x_i \leq x} P(X = x_i)
+    $$
+
+Se contínua:
+    $$
+    F(x) = \int_{-\infty}^{x} f(t) \, dt
+    $$
+
+Propriedades da função de distribuição:
+\begin{itemize}
+    \item $0 \leq F(x) \leq 1, \quad F(x) \text{ é não decrescente}$,
+    \item $\lim_{x \to -\infty} F(x) = 0, \quad \lim_{x \to +\infty} F(x) = 1$
+    \item Caso discreto: $P(a < X \leq b) = F(b) - F(a)$
+    \item Caso contínuo: $f(x) = \frac{dF(x)}{dx}$
+\end{itemize}
+
+\section{Esperança}
+\subsection{Variável Aleatória Discreta}
+Seja $X$ uma variável aleatória discreta com distribuição de probabilidade $P(X = x_i)$. O valor esperado (ou esperança matemática) é:
+    $$
+    E[X] = \sum_{i=1}^{n} x_i \cdot P(X = x_i)
+    $$
+
+\subsection{Variável Aleatória Contínua}
+Seja $X$ uma variável aleatória contínua com função densidade de probabilidade $f(x)$, então:
+    $$
+    E[X] = \int_{-\infty}^{+\infty} x \cdot f(x) \, dx
+    $$
+
+\subsection{Função de uma Variável Aleatória}
+Seja $g(X)$ uma função de uma variável aleatória discreta $X$. Então:
+    $$
+    E[g(X)] = \sum_{i=1}^{n} g(x_i) \cdot P(X = x_i)
+    $$
+
+Seja $g(X)$ uma função de variável contínua com densidade $f(x)$. Então:
+    $$
+    E[g(X)] = \int_{-\infty}^{\infty} g(x) \cdot f(x) \, dx
+    $$
+
+\subsection{Propriedades}
+\begin{itemize}
+    \item Se $X = c$, onde $c$ é constante, então: $E[X] = E[c] = c$
+    \item Se $c$ é constante: $E[cX] = c \cdot E[X]$
+    \item Então: $E[aX + b] = a \cdot E[X] + b$
+\end{itemize}
+
+\section{Momento}
+\subsection{Momento Estatístico}
+Seja $X$ uma variável aleatória discreta com valores $x_1, x_2, \dots, x_k$. O momento de ordem $n$ de $X$ é:
+    $$
+    E[X^n] = \sum_{i=1}^{k} x_i^n \cdot P(X = x_i)
+    $$
+
+Se $X$ for contínua:
+    $$
+    E[X^n] = \int_{-\infty}^{\infty} x^n f(x) \, dx
+    $$
+
+\subsection{Momento Central}
+Seja $X$ uma variável aleatória.
+
+\begin{itemize}
+    \item Se $X$ é discreta, o momento central de ordem $n$ ($n > 0$) de $X$ é:
+    $$
+    \mu_n = E\left[(X - E[X])^n\right] = \sum_{x_i} (x_i - E[X])^n \cdot P(X = x_i)
+    $$
+    \item Se $X$ é contínua, então:
+    $$
+    \mu_n = E\left[(X - E[X])^n\right] = \int_{-\infty}^{\infty} (x - E[X])^n \cdot f(x) \, dx
+    $$
+\end{itemize}
+
+\section{Variância}
+A variância de uma variável aleatória $X$ é definida por:
+    $$
+    V(X) = \sigma^2 = E\left[(X - E(X))^2\right]
+    $$
+
+O desvio padrão é igual à raiz quadrada da variância:
+    $$
+    \sigma = \sqrt{V(X)}
+    $$
+
+Temos a propriedade de que:
+    $$
+    V(X) = E[X^2] - (E[X])^2
+    $$
+
+Seja $g(X)$ uma função da variável aleatória $X$. Então,
+    $$
+    V[g(X)] = E[g(X)^2] - \left(E[g(X)]\right)^2
+    $$
+
+Seja $X$ uma variável aleatória e $a$ e $b$ constantes. Então,
+    $$
+    V(aX + b) = a^2 V(X)
+    $$
+
+\end{document}
