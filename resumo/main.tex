@@ -3,7 +3,8 @@
 \usepackage[brazil]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath, amssymb}
-\usepackage{hyperref} % Para links no sumário
+\usepackage{hyperref}
+\usepackage{float}
 
 \title{Fundamentos de Probabilidade e Estatística para Ciência de Dados}
 \author{Resumo das aulas do Prof. Dr. Francisco Rodrigues (ICMC-USP)}
@@ -291,7 +292,200 @@ Seja $g(X)$ uma função da variável aleatória $X$. Então,
 
 Seja $X$ uma variável aleatória e $a$ e $b$ constantes. Então,
     $$
-    V(aX + b) = a^2 V(X)
+    V(aX + b) = a^2 \cdot V(X)
     $$
+
+\section{Modelos Probabilísticos (Estocásticos) Discretos}
+\begin{itemize}
+    \item Os resultados de cada experimento parecem imprevisíveis, mas quando um grande número de experimentos é analisado, surge um padrão.
+    \item Não podemos determinar o valor exato do resultado de um experimento, mas sim as probabilidades de cada resultado possível.
+\end{itemize}
+
+\subsection{Distribuição Uniforme Discreta}
+Seja $X$ uma variável aleatória discreta assumindo os $n$ valores  $\{a, a + c, a + 2c, \ldots, b - c, b\}$,  com $a, b \in \mathbb{R}$, $c \in \mathbb{R}_{> 0}$ e $a < b$.
+
+Dizemos que $X$ segue o modelo uniforme discreto se atribuímos a mesma probabilidade $1/n$ a cada um desses valores.  
+Isto é, sua distribuição de probabilidade é dada por:
+    $$
+    P(X = x) = \frac{1}{n}, \quad x = a, a + c, a + 2c, \ldots, b
+    $$
+onde:
+    $$
+    n = 1 + \frac{b - a}{c}
+    $$
+
+Então,
+    $$
+    \mathbb{E}[X] = \frac{a + b}{2},
+    $$
+    $$
+    V(X) = \frac{c^2(n^2 - 1)}{12}
+    $$
+
+A Figura~\ref{fig:dist_disc_uniforme} apresenta um exemplo de distribuição uniforme discreta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_uniforme.png}
+    \caption{Distribuição uniforme discreta.}
+    \label{fig:dist_disc_uniforme}
+\end{figure}
+
+\subsection{Distribuição de Bernoulli}
+Dizemos que a variável aleatória $X$ segue o modelo de Bernoulli se atribuímos $0$ à ocorrência de um fracasso ou $1$ à ocorrência de um sucesso, com $p$ representando a probabilidade de sucesso,  
+$0 \leq p \leq 1$, e $1 - p$ a probabilidade de fracasso.
+
+A distribuição de probabilidade é dada por:
+    $$
+    P(X = k) = p^k (1 - p)^{1 - k}, \quad k = 0, 1
+    $$
+
+    \begin{center}
+    \begin{tabular}{c|cc}
+    $X$ & 0 & 1 \\
+    \hline
+    $P(X = k)$ & $1 - p$ & $p$
+    \end{tabular}
+    \end{center}
+
+Então,
+    $$
+    \mathbb{E}[X] = p,
+    $$
+    $$
+    V(X) = p \cdot (1-p)
+    $$
+
+A Figura~\ref{fig:dist_disc_bernoulli} apresenta um exemplo de distribuição de Bernoulli discreta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_bernoulli.png}
+    \caption{Distribuição de Bernoulli discreta.}
+    \label{fig:dist_disc_bernoulli}
+\end{figure}
+
+\subsection{Distribuição Binomial}
+O processo estocástico de Bernoulli possui as seguintes propriedades:
+\begin{itemize}
+    \item O experimento consiste de $n$ tentativas repetidas.
+    \item Cada tentativa gera um resultado que pode ser classificado como sucesso ou falha.
+    \item A probabilidade de sucesso $p$ se mantém constante de tentativa para tentativa.
+    \item As tentativas são feitas de forma independente uma da outra.
+\end{itemize}
+
+Seja $X$ uma variável aleatória baseada em $n$ repetições de um processo de Bernoulli.  
+Então a probabilidade de obtermos $k$ sucessos em $n$ repetições é dada por:
+    $$
+    P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k}, \quad k = 0, 1, 2, \ldots, n
+    $$,
+onde:
+    $$
+    C_n^k = \binom{n}{k} = \frac{n!}{(n - k)! \, k!}
+    $$
+é uma combinação de $n$ elementos tomados de $k$ em $k$.
+
+Então,
+    $$
+    \mathbb{E}[X] = n \cdot p,
+    $$
+    $$
+    V(X) = n \cdot p \cdot (1-p)
+    $$
+
+A Figura~\ref{fig:dist_disc_binomial} apresenta um exemplo de distribuição de binomial discreta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_binomial.png}
+    \caption{Distribuição binomial discreta.}
+    \label{fig:dist_disc_binomial}
+\end{figure}
+
+\subsection{Distribuição de Poisson}
+Uma variável aleatória discreta $X$ segue o modelo de Poisson com taxa $\lambda > 0$ se:
+    $$
+    P(X = k) = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \ldots
+    $$
+
+Então,
+    $$
+    \mathbb{E}[X] = \lambda,
+    $$
+    $$
+    V(X) = \lambda
+    $$
+
+A Figura~\ref{fig:dist_disc_poisson} apresenta um exemplo de distribuição de Poisson discreta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_poisson.png}
+    \caption{Distribuição de Poisson discreta.}
+    \label{fig:dist_disc_poisson}
+\end{figure}
+
+\subsection{Lei dos Eventos Raros}
+Seja $X$ uma variável aleatória com distribuição binomial e $p$ a probabilidade de sucesso. Então,
+
+    $$
+    \lim_{n \to \infty} \binom{n}{k} p^k (1 - p)^{n - k} = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \ldots,
+    $$
+onde $\lambda = np$ é constante.
+
+\subsection{Distribuição Geométrica}
+Dizemos que a variável aleatória discreta $X$ segue uma distribuição geométrica se:
+    $$
+    P(X = k) = p(1 - p)^{k - 1}, \quad k = 1, 2, \ldots
+    $$
+
+Então,
+    $$
+    \mathbb{E}[X] = \frac{1}{p},
+    $$
+    $$
+    V(X) = \frac{1 - p}{p^2}
+    $$
+
+A Figura~\ref{fig:dist_disc_geometrica} apresenta um exemplo de distribuição geométrica discreta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_geometrica.png}
+    \caption{Distribuição geométrica discreta.}
+    \label{fig:dist_disc_geometrica}
+\end{figure}
+
+\subsection{Distribuição Binomial Negativa}
+Seja $X$ o número de repetições necessárias a fim de que ocorram exatamente $r$ sucessos, de modo que o $r$-ésimo sucesso ocorra na $k$-ésima tentativa. Então,
+    $$
+    P(X = k) = \binom{k - 1}{r - 1} p^r (1 - p)^{k - r}, \quad k = r, r + 1, \ldots
+    $$
+
+A Figura~\ref{fig:dist_disc_binomial_negativa} apresenta um exemplo de distribuição binomial negativa discreta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_binomial_negativa.png}
+    \caption{Distribuição binomial negativa discreta.}
+    \label{fig:dist_disc_binomial_negativa}
+\end{figure}
+
+\subsection{Distribuição Hipergeométrica}
+Considere um conjunto de $N$ objetos, dos quais $N_1$ são do tipo 1 e $N_2 = N - N_1$ são do tipo 2.  
+Para um sorteio de $n$ objetos ($n < N$), sem reposição, seja $X$ a variável aleatória que define o número de objetos do tipo 1 sorteados.  
+Então, a probabilidade de sortearmos $k$ objetos do tipo 1 é:
+    $$
+    P(X = k) = \frac{\binom{N_1}{k} \binom{N - N_1}{n - k}}{\binom{N}{n}}, \quad k = 0, 1, \ldots, n
+    $$
+
+A Figura~\ref{fig:dist_disc_geometrica} apresenta um exemplo de distribuição hipergeométrica discreta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_geometrica.png}
+    \caption{Distribuição hipergeométrica discreta.}
+    \label{fig:dist_disc_geometrica}
+\end{figure}
 
 \end{document}
