@@ -5,6 +5,7 @@
 \usepackage{amsmath, amssymb}
 \usepackage{hyperref}
 \usepackage{float}
+\usepackage[a4paper, margin=1in]{geometry} 
 
 \title{Fundamentos de Probabilidade e Estatística para Ciência de Dados}
 \author{Resumo das aulas do Prof. Dr. Francisco Rodrigues (ICMC-USP)}
@@ -368,9 +369,9 @@ A Figura~\ref{fig:dist_disc_bernoulli} apresenta um exemplo de distribuição de
 \subsection{Distribuição Binomial}
 O processo estocástico de Bernoulli possui as seguintes propriedades:
 \begin{itemize}
-    \item O experimento consiste de $n$ tentativas repetidas.
-    \item Cada tentativa gera um resultado que pode ser classificado como sucesso ou falha.
-    \item A probabilidade de sucesso $p$ se mantém constante de tentativa para tentativa.
+    \item O experimento consiste de $n$ tentativas repetidas;
+    \item Cada tentativa gera um resultado que pode ser classificado como sucesso ou falha;
+    \item A probabilidade de sucesso $p$ se mantém constante de tentativa para tentativa;
     \item As tentativas são feitas de forma independente uma da outra.
 \end{itemize}
 
@@ -398,11 +399,24 @@ A Figura~\ref{fig:dist_disc_binomial} apresenta um exemplo de distribuição de 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_binomial.png}
-    \caption{Distribuição binomial discreta.}
+    \caption{Distribuição Binomial discreta.}
     \label{fig:dist_disc_binomial}
 \end{figure}
 
+A seguir, apresentamos um exemplo de problema que pode ser modelado por meio da Distribuição Binomial:
+\begin{quote}
+``Uma urna tem 20 bolas pretas e 30 brancas. Retiram-se 25 bolas com reposição. Qual a probabilidade de que 2 sejam pretas?''
+\end{quote}
+
 \subsection{Distribuição de Poisson}
+O processo estocástico de Poisson possui as seguintes propriedades:
+\begin{itemize}
+    \item O processo modela a ocorrência de eventos ao longo do tempo ou espaço contínuo;
+    \item Existe uma taxa média constante $\lambda > 0$, que representa o número esperado de eventos por unidade de tempo (ou espaço);
+    \item Os eventos ocorrem de forma independente em intervalos disjuntos;
+    \item A probabilidade acumulada de ocorrência de eventos aumenta com o tempo.
+\end{itemize}
+
 Uma variável aleatória discreta $X$ segue o modelo de Poisson com taxa $\lambda > 0$ se:
     $$
     P(X = k) = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \ldots
@@ -425,16 +439,28 @@ A Figura~\ref{fig:dist_disc_poisson} apresenta um exemplo de distribuição de P
     \label{fig:dist_disc_poisson}
 \end{figure}
 
-\subsection{Lei dos Eventos Raros}
-Seja $X$ uma variável aleatória com distribuição binomial e $p$ a probabilidade de sucesso. Então,
+A seguir, apresentamos um exemplo de problema que pode ser modelado por meio da Distribuição de Poisson:
+\begin{quote}
+``Numa estrada há 2 acidentes para cada 100 km. Qual a probabilidade de que em 250 km ocorram pelo menos 3 acidentes?''
+\end{quote}
 
+\subsection{Lei dos Eventos Raros}
+Seja $X$ uma variável aleatória com Distribuição Binomial e $p$ a probabilidade de sucesso. Então,
     $$
     \lim_{n \to \infty} \binom{n}{k} p^k (1 - p)^{n - k} = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \ldots,
     $$
 onde $\lambda = np$ é constante.
 
 \subsection{Distribuição Geométrica}
-Dizemos que a variável aleatória discreta $X$ segue uma distribuição geométrica se:
+A Distribuição Geométrica modela o número de tentativas necessárias até a ocorrência do primeiro sucesso em uma sequência de experimentos de Bernoulli independentes. Suas principais características são:
+
+\begin{itemize}
+    \item Cada tentativa resulta em um sucesso (com probabilidade $p$) ou uma falha (com probabilidade $1 - p$);
+    \item As tentativas são independentes entre si;
+    \item A variável aleatória $X$ representa o número de tentativas até o primeiro sucesso (inclusive o sucesso), ou, equivalentemente, o número de falhas antes do primeiro sucesso.
+\end{itemize}
+
+Dizemos que a variável aleatória discreta $X$ segue uma Distribuição Geométrica se:
     $$
     P(X = k) = p(1 - p)^{k - 1}, \quad k = 1, 2, \ldots
     $$
@@ -447,31 +473,51 @@ Então,
     V(X) = \frac{1 - p}{p^2}
     $$
 
-A Figura~\ref{fig:dist_disc_geometrica} apresenta um exemplo de distribuição geométrica discreta.
+A Figura~\ref{fig:dist_disc_geometrica} apresenta um exemplo de Distribuição Geométrica discreta.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_geometrica.png}
-    \caption{Distribuição geométrica discreta.}
+    \caption{Distribuição Geométrica discreta.}
     \label{fig:dist_disc_geometrica}
 \end{figure}
 
+A seguir, apresentamos um exemplo de problema que pode ser modelado por meio da Distribuição Geométrica:
+\begin{quote}
+``Suponha que temos uma urna com 36 bolas, sendo 27 bolas brancas e 9 pretas. Bolas são retiradas até que uma bola preta apareça. Qual é a probabilidade de que precisaremos de mais de 6 retiradas para sortear a primeira bola preta?''
+\end{quote}
+
 \subsection{Distribuição Binomial Negativa}
+A Distribuição Binomial Negativa é apropriada para modelar situações em que se deseja saber a probabilidade de que um número fixo de sucessos ocorra na $k$-ésima tentativa, ou seja, quantas falhas ocorrem antes de alcançar um número pré-determinado de sucessos.
+\begin{itemize}
+    \item Os experimentos são independentes e possuem apenas dois resultados possíveis: sucesso ou falha;
+    \item A probabilidade de sucesso $p$ é constante em cada tentativa;
+    \item O processo continua até que um número fixo de sucessos seja alcançado.
+\end{itemize}
+
 Seja $X$ o número de repetições necessárias a fim de que ocorram exatamente $r$ sucessos, de modo que o $r$-ésimo sucesso ocorra na $k$-ésima tentativa. Então,
     $$
     P(X = k) = \binom{k - 1}{r - 1} p^r (1 - p)^{k - r}, \quad k = r, r + 1, \ldots
     $$
 
-A Figura~\ref{fig:dist_disc_binomial_negativa} apresenta um exemplo de distribuição binomial negativa discreta.
+A Figura~\ref{fig:dist_disc_binomial_negativa} apresenta um exemplo de Distribuição Binomial Negativa discreta.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_binomial_negativa.png}
-    \caption{Distribuição binomial negativa discreta.}
+    \caption{Distribuição Binomial Negativa discreta.}
     \label{fig:dist_disc_binomial_negativa}
 \end{figure}
 
+A seguir, apresentamos um exemplo de problema que pode ser modelado por meio da Distribuição Binomial Negativa:
+\begin{quote}
+``Em uma série da liga de futebol amador de uma cidade, o time que ganhar quatro jogos em sete será o vencedor. Suponha que o time
+A tenha probabilidade $p = 0,6$ de ganhar do time B. Qual é a probabilidade de que A vença a série em seis jogos?''
+\end{quote}
+
 \subsection{Distribuição Hipergeométrica}
+A Distribuição Hipergeométrica é semelhante à Distribuição Binomial, porém com uma diferença essencial: as retiradas são feitas sem reposição. Enquanto a Distribuição Binomial assume que cada tentativa é independente e a probabilidade de sucesso permanece constante (devido à reposição), a Distribuição Hipergeométrica modela situações em que a probabilidade de sucesso varia a cada retirada, pois os elementos não são devolvidos ao conjunto.
+
 Considere um conjunto de $N$ objetos, dos quais $N_1$ são do tipo 1 e $N_2 = N - N_1$ são do tipo 2.  
 Para um sorteio de $n$ objetos ($n < N$), sem reposição, seja $X$ a variável aleatória que define o número de objetos do tipo 1 sorteados.  
 Então, a probabilidade de sortearmos $k$ objetos do tipo 1 é:
@@ -479,13 +525,18 @@ Então, a probabilidade de sortearmos $k$ objetos do tipo 1 é:
     P(X = k) = \frac{\binom{N_1}{k} \binom{N - N_1}{n - k}}{\binom{N}{n}}, \quad k = 0, 1, \ldots, n
     $$
 
-A Figura~\ref{fig:dist_disc_geometrica} apresenta um exemplo de distribuição hipergeométrica discreta.
+A Figura~\ref{fig:dist_disc_hipergeometrica} apresenta um exemplo de Distribuição Hipergeométrica discreta.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_geometrica.png}
-    \caption{Distribuição hipergeométrica discreta.}
-    \label{fig:dist_disc_geometrica}
+    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_hipergeometrica.png}
+    \caption{Distribuição Hipergeométrica discreta.}
+    \label{fig:dist_disc_hipergeometrica}
 \end{figure}
+
+A seguir, apresentamos um exemplo de problema que pode ser modelado por meio da Distribuição Hipergeométrica:
+\begin{quote}
+``Numa urna há 40 bolas brancas e 60 pretas. Retiram-se 20 bolas. Qual a probabilidade de que ocorram no mínimo 2 bolas brancas, considerando extrações sem reposição?''
+\end{quote}
 
 \end{document}
