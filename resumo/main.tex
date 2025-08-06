@@ -6,6 +6,9 @@
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage[a4paper, margin=1in]{geometry} 
+\usepackage{setspace}
+\onehalfspacing
+
 
 \title{Fundamentos de Probabilidade e Estatística para Ciência de Dados}
 \author{Resumo das aulas do Prof. Dr. Francisco Rodrigues (ICMC-USP)}
@@ -323,12 +326,12 @@ Então,
     V(X) = \frac{c^2(n^2 - 1)}{12}
     $$
 
-A Figura~\ref{fig:dist_disc_uniforme} apresenta um exemplo de distribuição uniforme discreta.
+A Figura~\ref{fig:dist_disc_uniforme} apresenta um exemplo de Distribuição Uniforme discreta.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_uniforme.png}
-    \caption{Distribuição uniforme discreta.}
+    \caption{Distribuição Uniforme discreta.}
     \label{fig:dist_disc_uniforme}
 \end{figure}
 
@@ -357,12 +360,12 @@ Então,
     V(X) = p \cdot (1-p)
     $$
 
-A Figura~\ref{fig:dist_disc_bernoulli} apresenta um exemplo de distribuição de Bernoulli discreta.
+A Figura~\ref{fig:dist_disc_bernoulli} apresenta um exemplo de Distribuição de Bernoulli.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_bernoulli.png}
-    \caption{Distribuição de Bernoulli discreta.}
+    \caption{Distribuição de Bernoulli.}
     \label{fig:dist_disc_bernoulli}
 \end{figure}
 
@@ -394,12 +397,12 @@ Então,
     V(X) = n \cdot p \cdot (1-p)
     $$
 
-A Figura~\ref{fig:dist_disc_binomial} apresenta um exemplo de distribuição de binomial discreta.
+A Figura~\ref{fig:dist_disc_binomial} apresenta um exemplo de Distribuição Binomial.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_binomial.png}
-    \caption{Distribuição Binomial discreta.}
+    \caption{Distribuição Binomial.}
     \label{fig:dist_disc_binomial}
 \end{figure}
 
@@ -430,12 +433,12 @@ Então,
     V(X) = \lambda
     $$
 
-A Figura~\ref{fig:dist_disc_poisson} apresenta um exemplo de distribuição de Poisson discreta.
+A Figura~\ref{fig:dist_disc_poisson} apresenta um exemplo de Distribuição de Poisson.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_poisson.png}
-    \caption{Distribuição de Poisson discreta.}
+    \caption{Distribuição de Poisson.}
     \label{fig:dist_disc_poisson}
 \end{figure}
 
@@ -473,12 +476,12 @@ Então,
     V(X) = \frac{1 - p}{p^2}
     $$
 
-A Figura~\ref{fig:dist_disc_geometrica} apresenta um exemplo de Distribuição Geométrica discreta.
+A Figura~\ref{fig:dist_disc_geometrica} apresenta um exemplo de Distribuição Geométrica.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_geometrica.png}
-    \caption{Distribuição Geométrica discreta.}
+    \caption{Distribuição Geométrica.}
     \label{fig:dist_disc_geometrica}
 \end{figure}
 
@@ -500,12 +503,12 @@ Seja $X$ o número de repetições necessárias a fim de que ocorram exatamente 
     P(X = k) = \binom{k - 1}{r - 1} p^r (1 - p)^{k - r}, \quad k = r, r + 1, \ldots
     $$
 
-A Figura~\ref{fig:dist_disc_binomial_negativa} apresenta um exemplo de Distribuição Binomial Negativa discreta.
+A Figura~\ref{fig:dist_disc_binomial_negativa} apresenta um exemplo de Distribuição Binomial Negativa.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_binomial_negativa.png}
-    \caption{Distribuição Binomial Negativa discreta.}
+    \caption{Distribuição Binomial Negativa.}
     \label{fig:dist_disc_binomial_negativa}
 \end{figure}
 
@@ -525,12 +528,12 @@ Então, a probabilidade de sortearmos $k$ objetos do tipo 1 é:
     P(X = k) = \frac{\binom{N_1}{k} \binom{N - N_1}{n - k}}{\binom{N}{n}}, \quad k = 0, 1, \ldots, n
     $$
 
-A Figura~\ref{fig:dist_disc_hipergeometrica} apresenta um exemplo de Distribuição Hipergeométrica discreta.
+A Figura~\ref{fig:dist_disc_hipergeometrica} apresenta um exemplo de Distribuição Hipergeométrica.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figuras/dist_disc_hipergeometrica.png}
-    \caption{Distribuição Hipergeométrica discreta.}
+    \caption{Distribuição Hipergeométrica.}
     \label{fig:dist_disc_hipergeometrica}
 \end{figure}
 
@@ -538,5 +541,210 @@ A seguir, apresentamos um exemplo de problema que pode ser modelado por meio da 
 \begin{quote}
 ``Numa urna há 40 bolas brancas e 60 pretas. Retiram-se 20 bolas. Qual a probabilidade de que ocorram no mínimo 2 bolas brancas, considerando extrações sem reposição?''
 \end{quote}
+
+\section{Modelos Probabilísticos Contínuos}
+
+\subsection{Distribuição Uniforme Contínua}
+Uma variável aleatória contínua $X$ segue uma Distribuição Uniforme se sua função densidade de probabilidade é dada por:
+    $$
+    f(x) = \begin{cases}
+    \frac{1}{b - a}, & x \in [a, b] \\
+    0, & x \notin [a, b]
+    \end{cases}
+    $$
+Então,
+    $$
+    \mathbb{E}[X] = \frac{a + b}{2},
+    $$
+    $$
+    V(X) = \frac{(b - a)^2}{12}
+    $$
+A Figura~\ref{fig:dist_cont_uniforme} apresenta um exemplo de Distribuição Uniforme contínua.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_uniforme.png}
+    \caption{Distribuição Uniforme contínua.}
+    \label{fig:dist_cont_uniforme}
+\end{figure}
+
+\subsection{Distribuição Normal}
+Uma variável aleatória contínua $X$ que tome todos os valores na reta real segue a Distribuição Normal (ou Gaussiana) se sua função densidade de probabilidade é definida por:
+    $$
+    f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp\left[ -\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2 \right], \quad -\infty < x < \infty
+    $$
+onde $\mu = E[X]$ e $\sigma^2 = V(X) > 0$.
+
+
+A Distribuição Normal apresenta as seguintes propriedades:
+\begin{itemize}
+    \item $f(x)$ é simétrica em relação à $\mu$.
+    \item $f(x) \to 0$ quando $x \to \pm\infty$.
+    \item O valor máximo de $f(x)$ ocorre em $x = \mu$.
+\end{itemize}
+
+
+Se $X$ é uma variável aleatória contínua com distribuição normal, $X \sim \mathcal{N}(\mu, \sigma^2)$, e se $Y = aX + b$, com $a$ e $b$ constantes, então
+    $$
+    Y \sim \mathcal{N}(a\mu + b, a^2\sigma^2).
+    $$
+Seja $X \sim \mathcal{N}(\mu, \sigma^2)$. Se
+    $$
+    Z = \frac{X - \mu}{\sigma},
+    $$
+então $Z \sim \mathcal{N}(0, 1)$.
+
+Assim,
+\begin{align*}
+    P(a \leq X \leq b) &= P\left( \frac{a - \mu}{\sigma} \leq \frac{X - \mu}{\sigma} \leq \frac{b - \mu}{\sigma} \right) \\
+    &= P\left( \frac{a - \mu}{\sigma} \leq Z \leq \frac{b - \mu}{\sigma} \right) \\
+    &= P(X \leq b) - P(X \leq a).
+\end{align*}
+
+A tabela Normal pode ser acessada através do link \url{https://en.wikipedia.org/wiki/Standard_normal_table#Table_examples}.
+
+A Figura~\ref{fig:dist_cont_normal} apresenta um exemplo de Distribuição Normal.
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_normal.png}
+    \caption{Distribuição Normal.}
+    \label{fig:dist_cont_normal}
+\end{figure}
+
+\subsection{Distribuição Exponencial}
+Uma variável aleatória contínua $X$ segue o modelo exponencial se sua função densidade de probabilidade é dada por:
+    $$
+    f(x) = 
+    \begin{cases}
+    \lambda e^{-\lambda x}, & x \geq 0 \\
+    0, & x < 0
+    \end{cases}
+    $$
+onde $\lambda > 0$ e $-\infty < x < \infty$.
+
+Então,
+    $$
+    E[X] = \frac{1}{\lambda},
+    $$
+    $$
+    V(X) = \frac{1}{\lambda^2}
+    $$
+
+A Distribuição Exponencial apresenta a propriedade de ``ausência de memória'', isto é:
+    $$
+    P(X \geq t + s \mid X \geq s) = P(X \geq t)
+    $$
+
+A Figura~\ref{fig:dist_cont_exponencial} apresenta um exemplo de Distribuição Exponencial.
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_exponencial.png}
+    \caption{Distribuição Exponencial.}
+    \label{fig:dist_cont_exponencial}
+\end{figure}
+
+\subsection{Distribuição Gama}
+Uma variável aleatória contínua $X$ tem Distribuição Gama com parâmetros $\lambda > 0$ e $\alpha > 0$, se sua função densidade de probabilidade é dada por:
+    $$
+    f(x) =
+    \begin{cases}
+    \frac{\lambda^\alpha}{\Gamma(\alpha)} x^{\alpha - 1} e^{-\lambda x}, & x \geq 0, \\
+    0, & x < 0,
+    \end{cases}
+    $$
+onde $\Gamma$ é a função gama:
+    $$
+    \Gamma(\alpha) = \int_0^{\infty} t^{\alpha - 1} e^{-t} \, dt.
+    $$
+
+Então,
+    $$
+    E[X] = \frac{\alpha}{\lambda},
+    $$
+    $$
+    V(X) = \frac{\alpha}{\lambda^2}
+    $$
+
+Se $\alpha$ for um número inteiro positivo, a distribuição representará uma distribuição Erlang, ou seja, a soma de $\alpha$ variáveis aleatórias independentes distribuídas exponencialmente, cada uma delas com uma média $\theta = 1/\lambda$.
+
+A Figura~\ref{fig:dist_cont_gama} apresenta um exemplo de Distribuição Gama.
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_gama.png}
+    \caption{Distribuição Gama.}
+    \label{fig:dist_cont_gama}
+\end{figure}
+
+\subsection{Distribuição Qui-Quadrado}
+A variável aleatória contínua $X$ segue a Distribuição Qui-Quadrado (denominada $\chi^2$) se sua função densidade de probabilidade é dada por:
+    $$
+    f(x) = 
+    \begin{cases}
+    \frac{x^{k/2 - 1} e^{-x/2}}{2^{k/2} \Gamma(k/2)}, & x > 0, \\
+    0, & x \leq 0,
+    \end{cases}
+    $$
+
+A Distribuição Qui-Quadrado é definida pela soma de $k$ distribuições normais padronizadas e independentes. Ou seja, $X$ tem Distribuição Qui-Quadrado com $k$ graus de liberdade se
+    $$
+    X = \sum_{i=1}^{k} Z_i^2,
+    $$
+onde $Z_1, Z_2, \ldots, Z_k$ são variáveis aleatórias com distribuição normal padronizada,
+    $$
+    Z_i \sim \mathcal{N}(\mu = 0, \sigma^2 = 1), \quad i = 1, \ldots, k.
+    $$
+
+Para denominar que $X$ segue uma Distribuição Qui-Quadrado, usamos $X \sim \chi^2(k)$ ou $X \sim \chi_k^2$.
+
+A Figura~\ref{fig:dist_cont_quiquadrado} apresenta um exemplo de Distribuição Qui-Quadrado.
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_quiquadrado.png}
+    \caption{Distribuição Qui-Quadrado.}
+    \label{fig:dist_cont_quiquadrado}
+\end{figure}
+
+\subsection{Distribuição Beta}
+Seja $X$ uma variável aleatória contínua limitada em $[0,1]$. Dizemos que $X$ segue uma Distribuição Beta se sua função densidade de probabilidade é dada por:
+    $$
+    f(x) =
+    \begin{cases}
+    \frac{1}{B(\alpha, \beta)} x^{\alpha - 1} (1 - x)^{\beta - 1}, & 0 < x < 1, \\
+    0, & \text{caso contrário},
+    \end{cases}
+    $$
+onde $\alpha, \beta > 0$ e
+    $$
+    B(\alpha, \beta) = \int_0^1 x^{\alpha - 1} (1 - u)^{\beta - 1} \, du,
+    $$
+é a função beta, que atua como uma constante de normalização para que a área da função densidade de probabilidade seja igual a um.
+
+A Figura~\ref{fig:dist_cont_beta} apresenta um exemplo de Distribuição Beta.
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_beta.png}
+    \caption{Distribuição Beta.}
+    \label{fig:dist_cont_beta}
+\end{figure}
+
+\subsection{Distribuição t de Student}
+A variável aleatória $X$ tem Distribuição t de Student com $\nu$ graus de liberdade se sua função densidade de probabilidade é dada por:
+    $$
+    f(x) = \frac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \, \Gamma\left(\frac{\nu}{2}\right)} \left(1 + \frac{x^2}{\nu} \right)^{-\frac{\nu+1}{2}}, \quad -\infty < x < \infty
+    $$
+onde $\Gamma$ é a função gama:
+    $$
+    \Gamma(\alpha) = \int_0^{\infty} t^{\alpha - 1} e^{-t} \, dt
+    $$
+
+Quando aumentamos $\nu$, a distribuição se aproxima da Distribuição Normal.
+
+A Figura~\ref{fig:dist_cont_tstudent} apresenta um exemplo de Distribuição t de Student.
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_tstudent.png}
+    \caption{Distribuição t de Student.}
+    \label{fig:dist_cont_tstudent}
+\end{figure}
 
 \end{document}
