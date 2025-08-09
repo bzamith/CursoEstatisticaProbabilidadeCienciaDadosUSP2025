@@ -330,7 +330,7 @@ A Figura~\ref{fig:dist_disc_uniforme} apresenta um exemplo de Distribuição Uni
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_uniforme.png}
+    \includegraphics[width=0.6\textwidth]{figuras/dist_disc_uniforme.png}
     \caption{Distribuição Uniforme discreta.}
     \label{fig:dist_disc_uniforme}
 \end{figure}
@@ -364,7 +364,7 @@ A Figura~\ref{fig:dist_disc_bernoulli} apresenta um exemplo de Distribuição de
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_bernoulli.png}
+    \includegraphics[width=0.6\textwidth]{figuras/dist_disc_bernoulli.png}
     \caption{Distribuição de Bernoulli.}
     \label{fig:dist_disc_bernoulli}
 \end{figure}
@@ -401,7 +401,7 @@ A Figura~\ref{fig:dist_disc_binomial} apresenta um exemplo de Distribuição Bin
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_binomial.png}
+    \includegraphics[width=0.6\textwidth]{figuras/dist_disc_binomial.png}
     \caption{Distribuição Binomial.}
     \label{fig:dist_disc_binomial}
 \end{figure}
@@ -437,7 +437,7 @@ A Figura~\ref{fig:dist_disc_poisson} apresenta um exemplo de Distribuição de P
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figuras/dist_disc_poisson.png}
+    \includegraphics[width=0.6\textwidth]{figuras/dist_disc_poisson.png}
     \caption{Distribuição de Poisson.}
     \label{fig:dist_disc_poisson}
 \end{figure}
@@ -563,7 +563,7 @@ A Figura~\ref{fig:dist_cont_uniforme} apresenta um exemplo de Distribuição Uni
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_uniforme.png}
+    \includegraphics[width=0.6\textwidth]{figuras/dist_cont_uniforme.png}
     \caption{Distribuição Uniforme contínua.}
     \label{fig:dist_cont_uniforme}
 \end{figure}
@@ -603,7 +603,7 @@ Assim,
 
 A tabela Normal pode ser acessada através do link \url{https://en.wikipedia.org/wiki/Standard_normal_table#Table_examples}.
 
-A Figura~\ref{fig:dist_cont_normal} apresenta um exemplo de Distribuição Normal.
+A Figura~\ref{fig:dist_cont_normal} apresenta um exemplo de Distribuição Normal. Note que $\mu$ define o centro da curva e $\sigma$ a abertura.
 
 \begin{figure}[H]
     \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_normal.png}
@@ -630,12 +630,21 @@ Então,
     V(X) = \frac{1}{\lambda^2}
     $$
 
-A Distribuição Exponencial apresenta a propriedade de ``ausência de memória'', isto é:
+E a função de distribuição acumulada é dada por:
+    $$
+    F(x) = 
+    \begin{cases}
+    1 - e^{-\lambda x}, & x \geq 0 \\
+    0, & x < 0
+    \end{cases}
+    $$
+
+A Distribuição Exponencial é derivada a partir de um processo de Poisson (cadeia de Markov de tempo contínuo). Ela apresenta a propriedade de ``ausência de memória'', isto é:
     $$
     P(X \geq t + s \mid X \geq s) = P(X \geq t)
     $$
 
-A Figura~\ref{fig:dist_cont_exponencial} apresenta um exemplo de Distribuição Exponencial.
+A Figura~\ref{fig:dist_cont_exponencial} apresenta um exemplo de Distribuição Exponencial. Note que $\lambda$ é onde começa o decaimento no eixo y.
 
 \begin{figure}[H]
     \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_exponencial.png}
@@ -666,6 +675,8 @@ Então,
     $$
 
 Se $\alpha$ for um número inteiro positivo, a distribuição representará uma distribuição Erlang, ou seja, a soma de $\alpha$ variáveis aleatórias independentes distribuídas exponencialmente, cada uma delas com uma média $\theta = 1/\lambda$.
+
+A Distribuição Exponencial é um caso especial da Distribuição Gama onde $\alpha = 1$.
 
 A Figura~\ref{fig:dist_cont_gama} apresenta um exemplo de Distribuição Gama.
 
@@ -719,7 +730,7 @@ onde $\alpha, \beta > 0$ e
     $$
 é a função beta, que atua como uma constante de normalização para que a área da função densidade de probabilidade seja igual a um.
 
-A Figura~\ref{fig:dist_cont_beta} apresenta um exemplo de Distribuição Beta.
+A Figura~\ref{fig:dist_cont_beta} apresenta um exemplo de Distribuição Beta. Note que o limite onde ela é definida no eixo x é de 0 a 1.
 
 \begin{figure}[H]
     \centering    \includegraphics[width=0.75\textwidth]{figuras/dist_cont_beta.png}
@@ -746,5 +757,118 @@ A Figura~\ref{fig:dist_cont_tstudent} apresenta um exemplo de Distribuição t d
     \caption{Distribuição t de Student.}
     \label{fig:dist_cont_tstudent}
 \end{figure}
+
+\subsection{Distribuição Weibull}
+
+Dizemos que a variável aleatória contínua $X$ segue a Distribuição Weibull se:
+    $$
+    f(x; \lambda, k) =
+    \begin{cases}
+    \frac{k}{\lambda} \left( \frac{x}{\lambda} \right)^{k-1} e^{-(x/\lambda)^k}, & x \ge 0, \\
+    0, & x < 0,
+    \end{cases}
+    $$
+
+Então,
+    $$
+    E[X] = \lambda \, \Gamma\left(1 + \frac{1}{k}\right),
+    $$
+    $$
+    \mathrm{var}[X] = \lambda^2 \left[ \Gamma\left( 1 + \frac{2}{k} \right) - \left( \Gamma\left( 1 + \frac{1}{k} \right) \right)^2 \right]
+    $$
+
+A Distribuição Exponencial é um caso especial da Distribuição de Weibull onde $k = 1$.
+
+A Figura~\ref{fig:dist_cont_weibull} apresenta um exemplo de Distribuição Weibull.
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.6\textwidth]{figuras/dist_cont_weibull.png}
+    \caption{Distribuição Weibull.}
+    \label{fig:dist_cont_weibull}
+\end{figure}
+
+\section{Variáveis Aleatórias Multidimensionais}
+\subsection{Discretas}
+Seja $\epsilon$ um experimento aleatório associado a um espaço amostral $\Omega$. Sejam $X_1 = X_1(\omega), X_2 = X_2(\omega), \ldots$, funções que associam um número real a cada resultado $\omega \in \Omega$. 
+Denominamos vetor aleatório o conjunto $\mathbf{X} = [X_1, X_2, \ldots]$.
+
+Sejam $X$ e $Y$ variáveis aleatórias associadas a um espaço amostral $\Omega$. O par $(X, Y)$ será uma variável aleatória discreta bidimensional se os valores possíveis forem finitos ou infinitos enumeráveis.  A cada resultado possível $(x_i, y_j)$, $i, j = 1, 2, \ldots$, associamos um número
+    $$
+    p(x_i, y_j) = P(X = x_i, Y = y_j)
+    $$
+satisfazendo:
+\begin{itemize}
+    \item $0 \leq P(X = x_i, Y = y_j) \leq 1 \quad \forall\,(x_i, y_j),\ i, j = 1, 2, \ldots$
+    \item $\displaystyle \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} P(X = x_i, Y = y_j) = 1$
+\end{itemize}
+
+\subsection{Contínuas}
+Sejam $X$ e $Y$ variáveis aleatórias associadas a um espaço amostral $\Omega$. O par $(X, Y)$ será uma variável aleatória contínua bidimensional se $(X, Y)$ tomar todos os valores em algum conjunto não enumerável do $\mathbb{R}^2$. A esse par, associamos uma função densidade de probabilidade conjunta que satisfaz:
+
+\begin{itemize}
+    \item $f(x, y) \geq 0 \quad \forall (x, y) \in \mathbb{R}^2$
+    \item $\displaystyle \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) \, dx \, dy = 1$
+\end{itemize}
+
+\subsection{Distribuição de Probabilidade Marginal}
+Seja $(X, Y)$ uma variável aleatória discreta bidimensional.  
+Então, a distribuição de probabilidade marginal de $X$ é definida por:
+\begin{equation}
+    P(X = x_i) = \sum_{j=1}^{\infty} P(X = x_i, Y = y_j)
+\end{equation}
+e a de $Y$:
+\begin{equation}
+    P(Y = y_j) = \sum_{i=1}^{\infty} P(X = x_i, Y = y_j)
+\end{equation}
+
+Então a função de densidade de probabilidade marginal é dada por:
+As funções densidade de probabilidade marginais são dadas por:
+    $$
+    f_X(x) = \int_{-\infty}^{\infty} f(x, y) \, dy
+    $$
+    $$
+    f_Y(y) = \int_{-\infty}^{\infty} f(x, y) \, dx
+    $$
+
+Então:
+    $$
+    P(a \leq x \leq b) = \int_a^b f_X(x) \, dx
+    $$
+    $$
+    P(c \leq y \leq d) = \int_c^d f_Y(y) \, dy
+    $$
+
+\subsection{Probabilidade Condicional Discreta}
+Seja o vetor aleatório bidimensional $(X, Y)$. A probabilidade condicional de $X = x$ dado que $Y = y$ foi observada é dada por:
+    $$
+    P(X = x \mid Y = y) = \frac{P(X = x, \, Y = y)}{P(Y = y)}, \quad P(Y = y) > 0.
+    $$
+
+\subsection{Probabilidade Condicional Contínua}
+Seja $(X, Y)$ um vetor aleatório bidimensional contínuo com função densidade de probabilidade conjunta $f(x, y)$. 
+Sejam $f_X(x)$ e $f_Y(y)$ as funções densidade de probabilidade marginais de $X$ e $Y$, respectivamente. 
+Então, a função densidade de probabilidade condicional de $X$ dado que $Y = y$ é definida por:
+    $$
+    f_{X|Y}(x|y) = \frac{f(x, y)}{f_Y(y)}, \quad f_Y(y) > 0
+    $$
+e a função densidade de probabilidade condicional de $Y$ dado que $X = x$,
+    $$
+    f_{Y|X}(y|x) = \frac{f(x, y)}{f_X(x)}, \quad f_X(x) > 0
+    $$
+
+\subsection{Independência}
+Dizemos que as variáveis aleatórias $X$ e $Y$ são independentes se, e somente se:
+
+\begin{itemize}
+    \item Caso discreto:
+    $$
+    P(X = x_i, Y = y_j) = P(X = x_i) P(Y = y_j), \quad \forall i \neq j
+    $$
+    \item Caso contínuo:
+    $$
+    f(x, y) = f_X(x) f_Y(y), \quad \forall (x, y) \in \mathbb{R}^2.
+    $$
+\end{itemize}
+
 
 \end{document}
