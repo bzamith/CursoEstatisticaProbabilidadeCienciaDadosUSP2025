@@ -133,6 +133,7 @@ Seja $A$ um evento no espaço amostral $\Omega$ e seja $B_1, \dots, B_n$ uma par
     P(A) = P\left( \bigcup_{i=1}^n A \cap B_i \right) = \sum_{i=1}^n P(A \cap B_i)
     $$
 
+\section{Lei da Probabilidade Total}
 Sejam $B_1, B_2, \dots, B_n$ uma partição do espaço amostral $\Omega$. Então, qualquer evento $A \subseteq \Omega$ pode ser escrito como:
     $$
     P(A) = \sum_{i=1}^n P(A \mid B_i) \cdot P(B_i)
@@ -320,7 +321,7 @@ onde:
 
 Então,
     $$
-    \mathbb{E}[X] = \frac{a + b}{2},
+    E[X] = \frac{a + b}{2},
     $$
     $$
     V(X) = \frac{c^2(n^2 - 1)}{12}
@@ -354,7 +355,7 @@ A distribuição de probabilidade é dada por:
 
 Então,
     $$
-    \mathbb{E}[X] = p,
+    E[X] = p,
     $$
     $$
     V(X) = p \cdot (1-p)
@@ -391,7 +392,7 @@ onde:
 
 Então,
     $$
-    \mathbb{E}[X] = n \cdot p,
+    E[X] = n \cdot p,
     $$
     $$
     V(X) = n \cdot p \cdot (1-p)
@@ -427,7 +428,7 @@ Uma variável aleatória discreta $X$ segue o modelo de Poisson com taxa $\lambd
 
 Então,
     $$
-    \mathbb{E}[X] = \lambda,
+    E[X] = \lambda,
     $$
     $$
     V(X) = \lambda
@@ -470,7 +471,7 @@ Dizemos que a variável aleatória discreta $X$ segue uma Distribuição Geomét
 
 Então,
     $$
-    \mathbb{E}[X] = \frac{1}{p},
+    E[X] = \frac{1}{p},
     $$
     $$
     V(X) = \frac{1 - p}{p^2}
@@ -554,7 +555,7 @@ Uma variável aleatória contínua $X$ segue uma Distribuição Uniforme se sua 
     $$
 Então,
     $$
-    \mathbb{E}[X] = \frac{a + b}{2},
+    E[X] = \frac{a + b}{2},
     $$
     $$
     V(X) = \frac{(b - a)^2}{12}
@@ -868,6 +869,300 @@ Dizemos que as variáveis aleatórias $X$ e $Y$ são independentes se, e somente
     $$
     f(x, y) = f_X(x) f_Y(y), \quad \forall (x, y) \in \mathbb{R}^2.
     $$
+\end{itemize}
+
+\section{Esperança Multidimensional}
+Sejam $X$ e $Y$ variáveis aleatórias e $g(X,Y)$ uma função de $X$ e $Y$.
+Então, a esperança de $g(X,Y)$ é definida por:
+
+\begin{itemize}
+    \item Caso discreto:
+        $$
+        E[g(X,Y)]
+        = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty}
+        g(x_i, y_j)\, \Pr(X = x_i,\, Y = y_j)
+        $$
+    \item Caso contínuo:
+        $$
+        E[g(X,Y)]
+        = \int_{-\infty}^{\infty}\!\!\int_{-\infty}^{\infty}
+        g(x,y)\, f_{X,Y}(x,y)\, dx\, dy
+        $$
+\end{itemize}
+
+Se as variáveis aleatórias $X$ e $Y$ forem independentes, então:
+    $$
+    E[XY] = E[X] \, E[Y]
+    $$
+
+\section{Variância Multidimensional}
+Sejam $X$ e $Y$ variáveis aleatórias e $g(X,Y)$ uma função de $X$ e $Y$.
+Então, a variância de $g(X,Y)$ é definida por:
+    $$
+    V[g(X,Y)] = E\left[ g(X,Y)^2 \right] - \left( E[g(X,Y)] \right)^2
+    $$
+
+Se as variáveis aleatórias $X$ e $Y$ forem independentes, então:
+    $$
+    V(X + Y) = V(X) + V(Y)
+    $$
+
+\section{Esperança Condicional}
+A esperança condicional para as variáveis aleatórias $X$ e $Y$ é definida por:
+
+\begin{itemize}
+    \item Caso discreto:
+        $$
+        E[X \mid Y = y] = \sum_{i=1}^{n} x_i \, P(X = x_i \mid Y = y)
+        $$
+        $$
+        E[Y \mid X = x] = \sum_{j=1}^{m} y_j \, P(Y = y_j \mid X = x)
+        $$
+    \item Caso contínuo:
+        $$
+        E[X \mid Y = y] = \int_{-\infty}^{\infty} x \, f_{X\mid Y}(x \mid y) \, dx
+        $$
+        $$
+        E[Y \mid X = x] = \int_{-\infty}^{\infty} y \, f_{Y\mid X}(y \mid x) \, dy
+        $$
+\end{itemize}
+
+\section{Variância Condicional}
+A variância condicional para as variáveis aleatórias $X$ e $Y$ é definida por:
+    $$
+    V(X \mid Y) = E[X^2 \mid Y] - \{ E[X \mid Y] \}^2
+    $$
+
+\section{Lei da Esperança Total}
+Sejam $X$ e $Y$ duas variáveis aleatórias. Então:
+    $$
+    E(X) = E\left[ E(X \mid Y) \right]
+    $$
+
+Assim, 
+    $$
+    E[X] = \sum_{y} E[X \mid Y = y] \, P(Y = y),
+    $$
+    $$
+    E[Y] = \sum_{x} E[Y \mid X = x] \, P(X = x).
+    $$
+
+\section{Covariância}
+Sejam $X$ e $Y$ variáveis aleatórias. A covariância de $X$ e $Y$ é definida por:
+    $$
+    \mathrm{Cov}(X, Y) = E\left[(X - E\left[X\right])(Y - E\left[Y\right])\right]
+    $$
+Portanto,
+    $$
+    \mathrm{Cov}(X, Y) = E\left[XY\right] - E\left[X\right]E(Y)
+    $$
+
+Note que:
+    $$
+    \mathrm{Cov}(X, X) = E\left[(X - E\left[X\right])^2\right] = V(X)
+    $$
+
+\section{Correlação de Pearson}
+Sejam $X$ e $Y$ duas variáveis aleatórias. A correlação de $X$ e $Y$ é definida por:
+    $$
+    \rho_{X,Y} =
+    \frac{E[(X - E[X])(Y - E[Y])]}{\sqrt{V(X)V(Y)}} =
+    \frac{\mathrm{cov}(X, Y)}{\sigma_X \sigma_Y}
+    $$
+onde $V(X)$ e $V(Y)$ são as variâncias de $X$ e $Y$, respectivamente.
+
+A correlação de Pearson nada mais é que a covariância normalizada (limitada entre -1 e 1).
+
+O coeficiente de Pearson pode ser definido para uma amostra de dados, onde, nesse caso, usamos os estimadores da covariância e variância.
+Assim, o coeficiente de Pearson para uma amostra é dado por:
+    $$
+    r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}
+    {\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \, \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}},
+    $$
+onde $-1 \leq r \leq 1$ e $x_i, y_i$, $i = 1, 2, \ldots, n$, são os valores observados.
+
+Quando a correlação de Pearson é igual a 0, não implica que não tem uma correlação, mas sim que essa correlação não é linear.
+
+\section{Modelos Probabilísticos Multidimensionais}
+\subsection{Distribuição Normal Multidimensional}
+
+O vetor aleatório $\mathbf{X}$ segue a distribuição normal multidimensional se sua função densidade de probabilidade conjunta é dada por:
+    $$
+    f(x; \mu, \Sigma) =
+    \frac{1}{\sqrt{(2\pi)^{d/2}|\Sigma|^{1/2}}}
+    \exp\left( -\frac{1}{2}(x - \mu)^\top \Sigma^{-1} (x - \mu) \right),
+    $$
+onde $\mu$ é o vetor que armazena a média e $\Sigma$ é a matriz de covariância.
+$|\Sigma|$ e $\Sigma^{-1}$ são o determinante e a inversa de $\Sigma$, respectivamente.
+
+A matriz de covariância é uma matriz quadrada cujas entradas são iguais à covariância de cada par de entradas do vetor aleatório.
+No caso bidimensional, temos
+    $$
+    \Sigma =
+    \begin{bmatrix}
+    \sigma_{11}^2 & \sigma_{12} \\
+    \sigma_{12} & \sigma_{22}^2
+    \end{bmatrix}
+    $$
+onde
+    $$
+    \sigma_{ii}^2 = V(X_i) = E\left[(X_i - E[X_i])^2\right], \quad i = 1,2,
+    $$
+é a variância de $X_i$; e
+    $$
+    \sigma_{ij} = \mathrm{cov}(X_i, X_j) = E\left[(X_i - E[X_i])(X_j - E[X_j])\right], \quad i \neq j,
+    $$
+é a covariância entre $X_i$ e $X_j$.
+
+\section{Simulação de Monte Carlo}
+Um dos métodos mais populares para simular processos probabilísticos foi proposto por na década de 40 por Stanislaw Ulam, que estava trabalhando no desenvolvimento da bomba atômica, no Los Alamos National Laboratory, nos Estados Unidos. Uma método parecido havia sido proposto por Enrico Fermi no estudo de difusão de neutrons, mas ele não publicou a ideia. A patir do trabalho de Ulam, John von Neumann adaptou o método e programou o  ENIAC (Electronic Numerical Integrator and Computer), que foi o primeiro computador programável, de forma geral, da história. John von Neumann chamou o método de Método de Monte Carlo, que, basicamente, é usado para gerar números aleatórios a partir de uma certa distribuição de probabilidades. O nome se deve à cidade de Monte Carlo, no principado de Mônaco, que possui diversos cassinos. O método de Monte Carlo possui as mais diversas aplicações que vão desde o estudo de emissões nucleares até inferência Bayesiana, sendo, nesse caso, é usada uma adaptação do método chamada Markov Chain Monte Carlo (MCMC).
+
+\subsection{Geração de Números Aleatórios}
+O primeiro passo na simulação de processos estocásticos é a geração de números aleatórios, ou seja, gerar números no intervalo $[0,1]$ onde todos os valores tem a mesma chance de ocorrerem (Distribuição Uniforme).
+
+No método chamada Linear Congruential Generator, nós geramos uma sequência de números pseudo-aleatórios através da relação de recorrência:
+    $$X_{n+1} = (aX_n + c) \mod m$$
+onde $X_0$ é a semente, $m$, $a$ e $c$ são inteiros maiores do que zero, e $\mod$ é o resto da divisão. A sequência obtida satisfaz  $0 \leq X_i \leq m$. Para gerar o número no intervalo [0,1], usamos $$U_n = X_n/m.$$
+
+Porém, esse método gera sequências periódicas. Ou seja, não temos um bom gerador de números aleatórios, pois podemos prever o próximo número se descobrir a sequência. 
+
+O gerador pseudo-aleatório linear produz uma sequência aperiódica se as seguintes condições forem sastisfeitas:
+    \begin{itemize}
+        \item $X_{n+1} = (aX_n + c)\mod m, \quad U_n = X_n/m$;
+        \item Se $q$ é um número primo que divide $m$, então ele divide $b=a-1$;
+        \item Se $m$ é múltiplo de 4, então $b=a-1$ deve ser múltiplo de 4;
+        \item O único inteiro que divide exatamente $m$ e $c$ é  valor um.
+    \end{itemize}
+
+\subsection{Cálculo de $\pi$}
+    $$
+    P\big((X, Y) \in \text{círculo}\big) = P\big(X^2 + Y^2 \le R^2\big),
+    $$
+
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{figuras/monte_carlo_calculo_pi.png}
+    \end{center}
+
+    $$
+    P(X^2 + Y^2 \le R^2) =
+    \frac{\text{Área do círculo}}{\text{Área do quadrado}} =
+    \frac{\pi R^2}{(2R)^2} = \frac{\pi}{4}.
+    $$
+
+\subsection{Cálculo de Integral}
+Seja a integral:
+    $$
+    \theta = \int_{0}^{1} g(u)\, du.
+    $$
+
+Vamos considerar a distribuição uniforme em $[a,b]$,
+    $$
+    f(u) =
+    \begin{cases}
+    \dfrac{1}{b-a}, & a \le u \le b,\\[6pt]
+    0, & \text{caso contrário.}
+    \end{cases}
+    $$
+    
+Se $a=0$ e $b=1$, temos a distribuição uniforme em $[0,1]$,
+    $$
+    f(u) =
+    \begin{cases}
+    1, & 0 \le u \le 1,\\
+    0, & \text{caso contrário.}
+    \end{cases}
+    $$
+    
+Assim, podemos escrever $\theta$ como:
+    $$
+    \theta = \int_{0}^{1} 1 \cdot g(u)\, du
+    = \int_{0}^{1} f(u)\, g(u)\, du
+    = E[g(U)],
+    $$
+onde $U$ é uma variável aleatória com distribuição uniforme em $[0,1]$.
+
+\subsubsection{Integrais Impróprias}
+Podemos ainda usar números aleatórios para calcular integrais impróprias, cujos limites de integração são definidos em $[0, \infty)$, isto é,
+    $$
+    \theta = \int_{0}^{\infty} g(x)\, dx.
+    $$
+
+Fazendo uma mudança de variáveis,
+    $$
+    y = \frac{1}{x+1}
+    \implies dy = -\left(\frac{1}{x+1}\right)^{2} dx
+    = -y^2 dx
+    \implies dx = \frac{dy}{y^2}.
+    $$
+
+Note que:
+    $$
+    \lim_{x \to 0} \frac{1}{x+1} = 1, \quad
+    \lim_{x \to \infty} \frac{1}{x+1} = 0.
+    $$
+
+Assim,
+    $$
+    \theta = \int_{0}^{\infty} g(x)\, dx
+    = \int_{1}^{0} g\left( \frac{1}{y} - 1 \right) \frac{dy}{y^2}
+    = \int_{0}^{1} h(y)\, dy,
+    $$
+    onde
+    $$
+    h(y) = \frac{g\left( \frac{1}{y} - 1 \right)}{y^2}.
+    $$
+
+\subsubsection{Integrais Múltiplas}
+    $$
+    \theta = \int_{a}^{b}\!\!\int_{c}^{d} g(x,y)\, dy\, dx,
+    $$
+
+Fazemos as transformações:
+    $$
+    z=\frac{x-a}{\,b-a\,} \;\;\Longrightarrow\;\; x = z(b-a)+a \;\;\Longrightarrow\;\; dx=(b-a)\,dz,
+    $$
+    $$
+    w=\frac{y-c}{\,d-c\,} \;\;\Longrightarrow\;\; y = w(d-c)+c \;\;\Longrightarrow\;\; dy=(d-c)\,dw.
+    $$
+    
+Assim, temos:
+    $$
+    \theta=\int_{0}^{1}\!\!\int_{0}^{1} h(z,w)\, dz\, dw,
+    $$
+onde
+    $$
+    h(z,w)=(b-a)(d-c)\; g\!\big(z(b-a)+a,\; w(d-c)+c\big).
+    $$
+
+    Assim:
+    $$
+    \theta = E\!\left[h(Z,W)\right],
+    $$
+com $Z,W \sim U(0,1)$ independentes.
+
+\subsection{Simulação de Variáveis Aleatórias}
+$X$ é uma variável aleatória com função de distribuição $F_X(x) = P(X \le x)$. Como $F_X$ é estritamente não-decrescente, então:
+    $$
+    u \le F_X(x) \iff F_X^{-1}(u) \le x,
+    $$
+onde assumimos que a inversa $F_X^{-1}$ da função $F_X$ existe.
+
+Vamos encontrar a variável aleatória $Y = F_X^{-1}(U)$ que tem a mesma distribuição de $X$,
+onde $U$ tem distribuição uniforme em $[0,1]$.
+Assim, se $F_X(x) = u$, temos:
+$$
+P(U \le u) = P(U \le F_X(x))
+= P(F_X^{-1}(U) \le F_X^{-1}(F_X(x)))
+= P(F_X^{-1}(U) \le x) = P(Y \le x) = F_X(x).
+$$
+
+Essa igualdade ocorre apenas se $Y = F_X^{-1}(U)$ tem a mesma distribuição de $X$.
+
+Portanto, para simularmos a variável aleatória $X$, geramos $n$ valores $u_1, u_2, \ldots, u_n$, onde $u_i \sim U(0,1)$, $i = 1,2,\ldots,n$, e calculamos $x_i = F_X^{-1}(u_i)$, onde $F_X(x) = P(X \le x)$ é a função de distribuição de $X$. O algoritmo geral é dado por:
+\begin{itemize}
+    \item Gere um valor $u_i$ a partir da distribuição uniforme em $[0,1]$.
+    \item Calcule $x_i = F_X^{-1}(u_i)$, onde $F_X(x) = P(X \le x)$ é a distribuição acumulada de $X$.
+    \item Repita o processo $n$ vezes para simular $n$ valores de $X$.
 \end{itemize}
 
 
