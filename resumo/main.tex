@@ -963,6 +963,7 @@ Note que:
     $$
 
 \section{Correlação de Pearson}
+\label{sec:correlacao_pearson}
 Sejam $X$ e $Y$ duas variáveis aleatórias. A correlação de $X$ e $Y$ é definida por:
     $$
     \rho_{X,Y} =
@@ -1163,6 +1164,69 @@ Portanto, para simularmos a variável aleatória $X$, geramos $n$ valores $u_1, 
     \item Gere um valor $u_i$ a partir da distribuição uniforme em $[0,1]$.
     \item Calcule $x_i = F_X^{-1}(u_i)$, onde $F_X(x) = P(X \le x)$ é a distribuição acumulada de $X$.
     \item Repita o processo $n$ vezes para simular $n$ valores de $X$.
+\end{itemize}
+
+\section{Análise Exploratória de Dados}
+\subsection{Visualização}
+\begin{itemize}
+    \item Uma das maneiras mais simples de visualizar a distribuição dos dados é através de gráficos de frequência e histogramas;
+    \item No caso do histograma, a área sob a curva deve ser igual a 1 e ele é uma aproximação da função densidade de probabilidade;
+    \item No caso de variáveis nominais, podemos usar gráficos de barra ou gráficos de setores. Nesse caso, o valor no eixo das abscissas (x) é arbitrário e não deve ser levando em conta;
+    \item Outro gráfico importante é o scatterplot, usado quando queremos verificar a relação entre duas variáveis;
+    \item Quando temos três variáveis, uma maneira de visualizarmos os dados é considerar um gráfico de calor, sendo que a escala de cores define a terceira variável.
+    \item Referência: \url{https://python-graph-gallery.com/}
+\end{itemize}
+
+\subsection{Medidas de Posição}
+\begin{itemize}
+    \item \textbf{Moda}: Uma medida importante de tendência central é a moda, que retorna o elemento mais comum em um conjunto de dados. Geralmente, essa medida é usada para atributos nominais;
+    \item \textbf{Média e Mediana}: São medidas de tendência central usadas para dados quantitativos. Assim, a média:
+    $$
+    \bar{X} = \frac{1}{n} \sum_{i=1}^n x_i
+    $$
+    A média é altamente sensível a valores extremos, enquanto que a mediana é mais robusta.
+    A média é similar à mediana se a distribuição é praticamente simétrica em relação à média. Caso a distribuição não seja simétrica, o mais adequado é usar a mediana como medida central.
+    \item \textbf{Percentil}: O percentil é uma medida estatística que indica a posição relativa de um valor dentro de um conjunto de dados, dividindo-o em 100 partes iguais. Ele expressa a porcentagem de valores no conjunto que estão abaixo de um determinado valor.
+    \begin{itemize}
+        \item Percentil 25 (ou primeiro quartil): 25\% dos valores do conjunto são menores ou iguais a este valor;
+        \item Percentil 50 (ou mediana): 50\% dos valores estão abaixo ou no mesmo nível (é o valor central);
+        \item Percentil 75 (ou terceiro quartil): 75\% dos valores estão abaixo.
+    \end{itemize}
+    Para visualizar os quantis, podemos usar o boxplot:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{figuras/boxplot.png}
+    \end{figure}
+\end{itemize}
+
+\subsection{Medidas de Dispersão}
+\begin{itemize}
+    \item As medidas de dispersão mais usadas são a variância e o desvio padrão;
+    \item A distância interquantil (IQR) também é bastante usada e quantifica a diferença entre o terceiro e primeiro quantil;
+    \item Já a amplitude simplesmente mede a diferença entre os valores máximo e mínimo.
+\end{itemize}
+
+\subsection{Correlação}
+\begin{itemize}
+    \item A medida de correlação é importante para analisar a relação entre as variáveis. Se duas variáveis são altamente correlacionadas, é adequado remover uma delas, de modo a reduzir informação redundante nos dados.
+    \item \textbf{Correlação de Pearson}: Como apresentado na Seção~\ref{sec:correlacao_pearson};
+    \item \textbf{Correlação de Spearman}: A correlação de Spearman mede a associação monotônica entre duas variáveis usando seus ranks em vez dos valores brutos (diferente da de Pearson, que mede relação linear), e sua fórmula é:
+    $$
+    \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}
+    $$
+    O coeficiente de Spearman nada mais é do que o coeficiente de Pearson aplicado à ordem dos valores.
+\end{itemize}
+
+\subsection{Análise dos Componentes Principais}
+\begin{itemize}
+    \item \textbf{Objetivo}: Reduzir a dimensionalidade dos dados mantendo o máximo possível da variabilidade (informação) original;
+    \item \textbf{Centralização dos dados}: Subtrai-se a média de cada variável para que tenham média zero;
+    \item \textbf{Cálculo da matriz de covariância (ou de correlação)}: Para entender como as variáveis variam juntas.
+    \item \textbf{Autovalores e Autovetores}: Extrai-se os autovetores (direções principais) e autovalores (quantidade de variância explicada) da matriz de covariância;
+    \item \textbf{Ordenação}: Classifica-se os autovetores pelo autovalor correspondente, do maior para o menor.
+    \item \textbf{Seleção de Componentes}: Escolhe-se os primeiros $k$ autovetores que explicam a maior parte da variância;
+    \item \textbf{Projeção dos Dados}: Transforma-se os dados originais para o novo espaço definido pelos $k$ componentes principais.
+    \item Para estimarmos o número de componentes para projetarmos os dados, podemos analisar como a variância muda de acordo com o número de componentes.
 \end{itemize}
 
 
