@@ -1229,5 +1229,119 @@ Portanto, para simularmos a variável aleatória $X$, geramos $n$ valores $u_1, 
     \item Para estimarmos o número de componentes para projetarmos os dados, podemos analisar como a variância muda de acordo com o número de componentes.
 \end{itemize}
 
+\section{Estimação Pontual}
+Definições:
+\begin{enumerate}
+    \item Um parâmetro é uma medida para descrever uma característica da população;
+    \item Uma amostra aleatória é uma coleção de variáveis aleatórias 
+    $X_1, X_2, \ldots, X_n$ independentes e identicamente distribuídas;
+    \item Seja uma amostra aleatória $X_1, X_2, \ldots, X_n$ de uma população. Uma estatística é uma função de $X_1, X_2, \ldots, X_n$;
+    \item Um estimador é uma estatística usada para estimar um parâmetro da população.
+\end{enumerate}
+
+\subsection{Função de Verossimilhança}
+Seja $X_1, X_2, \ldots, X_n$ uma amostra aleatória obtida de uma distribuição de probabilidade com parâmetros $\theta_1, \ldots, \theta_k$. 
+Suponha que observamos $X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n$. 
+Então, se as variáveis $X_1, X_2, \ldots, X_n$ são discretas, a função de verossimilhança é definida por:
+    $$
+    L(\theta; \mathbf{x}) = L(\theta_1, \theta_2, \ldots, \theta_k; x_1, \ldots, x_n) 
+    = \prod_{i=1}^n P(X_i = x_i; \theta_1, \theta_2, \ldots, \theta_k).
+    $$
+
+Por outro lado, se as variáveis aleatórias são contínuas, então a função de verossimilhança é dada por:
+    $$
+    L(\theta; \mathbf{x}) = L(\theta_1, \theta_2, \ldots, \theta_k; x_1, \ldots, x_n) 
+    = \prod_{i=1}^n f(x_i; \theta_1, \theta_2, \ldots, \theta_k).
+    $$
+
+\subsection{Estimador de Máxima Verossimilhança}
+Para realizarmos a maximização da função de verossimilhança, precisamos derivar essa função com relação aos parâmetros $\theta$ e igualar o resultado a zero.
+    
+No entanto, como essa função é definida em termos de um produtório, para facilitar os cálculos, podemos usar a função logaritmo, de forma a transformar os produtos em somas. Assim,   
+    $$
+    \ell(\theta; \mathbf{x}) = \log \left( L(\theta; \mathbf{x}) \right).
+    $$
+    
+Estamos usando a base $e$ ($\log(x) = \ln(x)$), mas outras bases também podem ser usadas.
+
+O estimador de máxima verossimilhança $\hat{\theta}$ é definido por:
+    $$
+    \hat{\theta} = \arg\max_{\theta \in \Theta} \, \ell(\theta; \mathbf{x}),
+    $$
+onde $\Theta$ é o espaço dos parâmetros.
+
+Definições:
+\begin{itemize}
+    \item Um estimador $\hat{\theta}$ para o parâmetro populacional $\theta$ é não viesado (ou não viciado) se:
+        $$
+        E[\hat{\theta}] = \theta.
+        $$
+    \item Um estimador $\hat{\theta}_n = \hat{\theta}_n(X_1, \ldots, X_n)$ é assintoticamente não viesado se
+        $$
+        \lim_{n \to \infty} E[\hat{\theta}_n] = \theta.
+        $$
+    \item Uma sequência de estimadores $\hat{\theta}_n = \hat{\theta}_n(X_1, \ldots, X_n)$ é consistente se
+        $$
+        \lim_{n \to \infty} P\{|\hat{\theta}_n - \theta| > \varepsilon\} = 0,
+        \quad \text{para todo } \varepsilon > 0.
+        $$
+    Em outras palavras, uma sequência de estimadores é consistente se:
+        $$
+        \begin{cases}
+        \lim_{n \to \infty} E[\hat{\theta}_n] = \theta \\
+        \lim_{n \to \infty} V[\hat{\theta}_n] = 0
+        \end{cases}
+        $$
+\end{itemize}
+
+Propriedades:
+\begin{itemize}
+    \item O estimador de máxima verossimilhança é assintoticamente consistente, de modo que ele converge em probabilidade para a quantidade que está sendo estimada, isto é,
+        $$
+        \lim_{n \to \infty} P\{|\hat{\theta}_n - \theta| > \varepsilon\} = 0,
+        $$
+    onde $\hat{\theta}_n$ é o estimador obtido para uma amostra de tamanho $n$. Portanto, quando aumentamos o tamanho da amostra, a probabilidade do estimador de estar próximo do parâmetro de população aumenta.
+    \item O estimador de máxima verossimilhança é assintoticamente não viesado, isto é,
+        $$
+        \lim_{n \to \infty} E[\hat{\theta}] = \theta.
+        $$
+    \item O estimador de máxima verossimilhança é equivarante, ou seja, se $\hat{\theta}$ é o estimador de $\theta$, então $g(\hat{\theta})$ é o estimador de $g(\theta)$
+    \item O estimador é assintoticamente normal, isto é,
+        $$
+        \frac{\hat{\theta} - \theta}{\hat{s}e} \sim \mathcal{N}(0,1),
+        $$
+    onde
+        $$
+        \hat{s}e = \sqrt{V(\hat{\theta})},
+        $$
+    é o erro padrão.
+    \item O estimador de máxima verossimilhança é assintoticamente ótimo e eficiente, sendo, para amostras grandes, o estimador que apresenta menor variância dentre todos os estimadores possíveis.
+\end{itemize}
+
+\subsubsection{Estimador de Máxima Verossimilhança da Distribuição Normal}
+Assim, o Estimador de Máxima Verossimilhança para o modelo normal:
+\begin{itemize}
+    \item Média $\mu$:
+    $$
+    \hat{\mu} = \frac{\sum_{i=1}^n X_i}{n} = \bar{X}.
+    $$
+    \item Variância ($\sigma^2$):
+    $$
+    \hat{\sigma}^2 = \frac{\sum_{i=1}^n (X_i - \bar{X})^2}{n}.
+    $$
+\end{itemize}
+
+\subsubsection{Estimador de Máxima Verossimilhança da Distribuição Binomial}
+O estimador de verossimilhança do parâmetro $\theta$ para uma distribuição Binomial com parâmetro $m$ (número de experimentos) e $\theta$ (probabilidade de sucesso) é dado por:
+    $$
+    \hat{\theta} = \frac{1}{nm} \sum_{i=1}^n X_i.
+    $$
+    
+\subsubsection{Estimador de Máxima Verossimilhança da Distribuição Exponencial}
+O estimador de máxima verossimilhança de uma população que segue o modelo exponencial é dado por:
+    $$
+    \hat{\theta} = \frac{n}{\sum_{i=1}^n x_i}.
+    $$
+    
 
 \end{document}
