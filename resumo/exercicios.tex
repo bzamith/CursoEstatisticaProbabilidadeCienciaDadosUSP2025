@@ -1006,7 +1006,7 @@ A variância de uma variável aleatória $X$ é igual a $V(X) = 4$. Calcule $V(2
 
 \section{Modelos Probabilísticos (Estocásticos) Discretos}
 \subsection{Exercício 1 (Distribuição Uniforme Discreta)}
-Seja $X$ uma variável aleatória que representa a saída em um dado de 12 faces, isto é, $X$ tem distribuição uniforme discreta em $1,2,\ldots,12$, isto é, $a = 1$, $c = 1$ e $b = 12$. 
+Seja $X$ uma variável aleatória que representa a saída em um dado de 12 faces, isto é, $X$ tem Distribuição Uniforme Discreta em $1,2,\ldots,12$, isto é, $a = 1$, $c = 1$ e $b = 12$. 
 
 Assim,  
     $$
@@ -1070,7 +1070,7 @@ $A$ vença um jogo, $B$ vença dois jogos e $C$ vença três jogos?
 \vspace{0.5cm}
 \textbf{Solução:} 
 Como temos três saídas possíveis e os jogos são independentes, 
-temos um exemplo de aplicação da distribuição multinomial. 
+temos um exemplo de aplicação da Distribuição Multinomial. 
 Seja $X_A$, $X_B$ e $X_C$ as variáveis aleatórias que 
 representam o número de vitórias de $A$, $B$ e $C$, respectivamente. 
 Assim:
@@ -1152,7 +1152,7 @@ Primeiro, precisamos converter a taxa média de chegadas de pacientes para uma b
     $$
     \lambda_{\text{hora}} = \frac{120 \text{ pacientes/dia}}{24 \text{ horas/dia}} = 5 \text{ pacientes/hora}
     $$
-    Agora que temos a taxa correta, podemos aplicar a fórmula da distribuição de Poisson para calcular a probabilidade de que exatamente 10 pacientes cheguem em uma hora:
+    Agora que temos a taxa correta, podemos aplicar a fórmula da Distribuição de Poisson para calcular a probabilidade de que exatamente 10 pacientes cheguem em uma hora:
     $$
     P(X = 10) = \frac{\lambda_{\text{hora}}^{10} e^{-\lambda_{\text{hora}}}}{10!} = 
     \frac{5^{10} e^{-5}}{10!} \approx 0.0018
@@ -1348,7 +1348,7 @@ O peso médio de 500 estudantes do sexo masculino em uma universidade é igual 7
     $$
 
 \subsection{Exercício 6 (Distribuição Exponencial)}
-O intervalo de tempo entre emissões consecutivas de uma fonte radioativa é uma variável aleatória com distribuição exponencial com parâmetro $\lambda = 0.2$ emissões por minuto. Qual é a probabilidade de que ocorra uma emissão em um intervalo inferior a 2 minutos?
+O intervalo de tempo entre emissões consecutivas de uma fonte radioativa é uma variável aleatória com Distribuição Exponencial com parâmetro $\lambda = 0.2$ emissões por minuto. Qual é a probabilidade de que ocorra uma emissão em um intervalo inferior a 2 minutos?
 
 \vspace{0.5cm}
 \textbf{Solução:} 
@@ -1374,7 +1374,7 @@ Estudantes chegam a uma festa a uma taxa de 30 estudantes por hora. Qual é a pr
     $$
 
 \subsection{Exercício 8 (Distribuição Exponencial)}
-Seja $X$ o tempo que clientes esperam para usar um caixa eletrônico, com média igual a 4 minutos (distribuição exponencial). Determine:
+Seja $X$ o tempo que clientes esperam para usar um caixa eletrônico, com média igual a 4 minutos (Distribuição Exponencial). Determine:
 \begin{enumerate}
     \item[(a)] A probabilidade de gastar entre 4 e 5 minutos.
     \item[(b)] A probabilidade de gastar mais que 6 minutos.
@@ -1427,10 +1427,10 @@ Como ocorrem 6 atendimentos por hora, em média, temos que o tempo médio de esp
 Logo, a probabilidade é próxima de 50\%.
 
 \subsection{Exercício 10 (Distribuição Gama)}
-No desenvolvimento de um novo foguete, engenheiros inserem dois tanques de combustível, sendo um deles ativo e o outro usado como reserva, que é acionado caso ocorra uma falha no primeiro tanque. Suponha que em uma missão espacial necessita de 50 horas de voo para ser finalizada. De acordo com o fabricante do tanque, o tempo médio antes de ocorrer uma falha é de 100 horas. Calcule a probabilidade de que a missão será bem-sucedida. Assuma que o tempo de funcionamento dos tanques apresenta distribuição exponencial.
+No desenvolvimento de um novo foguete, engenheiros inserem dois tanques de combustível, sendo um deles ativo e o outro usado como reserva, que é acionado caso ocorra uma falha no primeiro tanque. Suponha que em uma missão espacial necessita de 50 horas de voo para ser finalizada. De acordo com o fabricante do tanque, o tempo médio antes de ocorrer uma falha é de 100 horas. Calcule a probabilidade de que a missão será bem-sucedida. Assuma que o tempo de funcionamento dos tanques apresenta Distribuição Exponencial.
 
 \vspace{0.5cm}
-\textbf{Solução:} Como temos dois tanques, para que o sistema todo falhe devem ocorrer dois eventos (duas falhas), sendo que o tempo associado a cada um deles segue o modelo exponencial. Logo, o tempo para o sistema falhar segue uma distribuição gama com $\alpha = 2$ (notem que é a soma de duas distribuições exponenciais). Como o tempo médio para ocorrer uma falha em cada tanque é igual a 100 horas, temos que $\lambda = 1/100$. Assim, se a variável aleatória $X$ representa o tempo de funcionamento dos tanques de combustível, vamos calcular a probabilidade usando a equação (16):
+\textbf{Solução:} Como temos dois tanques, para que o sistema todo falhe devem ocorrer dois eventos (duas falhas), sendo que o tempo associado a cada um deles segue o modelo exponencial. Logo, o tempo para o sistema falhar segue uma Distribuição Gama com $\alpha = 2$ (notem que é a soma de duas distribuições exponenciais). Como o tempo médio para ocorrer uma falha em cada tanque é igual a 100 horas, temos que $\lambda = 1/100$. Assim, se a variável aleatória $X$ representa o tempo de funcionamento dos tanques de combustível, vamos calcular a probabilidade usando a equação (16):
     $$
     P(X > 50) = 1 - P(X < 50)
     $$
@@ -1538,18 +1538,18 @@ No caso da probabilidade pedida, temos:
     
 \subsection{Exercício 3}
 Suponha que duas bolas são escolhidas sem reposição de uma urna com 5 bolas brancas e 10 pretas. Seja a variável aleatória $X_i = 1$ se a $i$-ésima selecionada é branca ou $X_i = 0$ se essa bola é preta. Determine a distribuição de probabilidade marginal de $X_1$ e $X_2$.
-    \[
+    $$
     \begin{array}{c|cc}
     X_1 X_2 & 0 & 1 \\
     \hline
     0 & 9/21 & 5/21 \\
     1 & 5/21 & 2/21 \\
     \end{array}
-    \]
+    $$
 
 \vspace{0.5cm}
 \textbf{Solução:}
-    \[
+    $$
     \begin{array}{c|cc|c}
     X_1 X_2 & 0 & 1 & P(X_1 = x) \\
     \hline
@@ -1558,14 +1558,14 @@ Suponha que duas bolas são escolhidas sem reposição de uma urna com 5 bolas b
     \hline
     P(X_2 = x) & 2/3 & 1/3 & 1 \\
     \end{array}
-    \]
+    $$
 
 \subsection{Exercício 4}
 Suponha que duas bolas são escolhidas sem reposição de uma urna com 5 bolas brancas e 10 pretas. Seja a variável aleatória $X_i = 1$ se a $i$-ésima selecionada é branca ou $X_i = 0$ se essa bola é preta. Determine as distribuições de probabilidade condicional $P(X_1|X_2 = x)$ e $P(X_2|X_1 = x)$.
 
 \vspace{0.5cm}
 \textbf{Solução:} Vimos anteriormente que a distribuição de probabilidade conjunta da variável aleatória bidimensional $(X_1, X_2)$ e as respectivas distribuições de probabilidade marginais são dadas pela tabela a seguir.
-    \[
+    $$
     \begin{array}{c|cc|c}
     X_1\backslash X_2 & 0 & 1 & P(X_1 = x) \\
     \hline
@@ -1574,49 +1574,49 @@ Suponha que duas bolas são escolhidas sem reposição de uma urna com 5 bolas b
     \hline
     P(X_2 = x) & \frac{2}{3} & \frac{1}{3} & 1
     \end{array}
-    \]
+    $$
 
 Temos:  
-    \[
+    $$
     P(X_1 = 0|X_2 = 0) = \frac{P(X_1 = 0, X_2 = 0)}{P(X_2 = 0)} = 
     \frac{\frac{9}{21}}{\frac{2}{3}} = \frac{9}{14}.
-    \]
-    \[
+    $$
+    $$
     P(X_1 = 0|X_2 = 1) = \frac{P(X_1 = 0, X_2 = 1)}{P(X_2 = 1)} = 
     \frac{\frac{5}{21}}{\frac{1}{3}} = \frac{5}{7}.
-    \]
+    $$
     
 Repetindo esse mesmo procedimento para os demais casos, temos a distribuição de probabilidade condicional 
 $P(X_1 = x|X_2 = y)$, $x = 0, 1$ e $y = 0, 1$:
-    \[
+    $$
     \begin{array}{c|cc}
     & X_2 = 0 & X_2 = 1 \\
     \hline
     P(X_1 = 0|X_2 = x) & \frac{9}{14} & \frac{5}{7} \\
     P(X_1 = 1|X_2 = x) & \frac{5}{14} & \frac{2}{7}
     \end{array}
-    \]
+    $$
 
 E a distribuição de probabilidade condicional 
 $P(X_2 = x|X_1 = y)$, onde $x = 0, 1$ e $y = 0, 1$:
-    \[
+    $$
     \begin{array}{c|cc}
     & X_1 = 0 & X_1 = 1 \\
     \hline
     P(X_2 = 0|X_1 = x) & \frac{9}{14} & \frac{5}{7} \\
     P(X_2 = 1|X_1 = x) & \frac{5}{14} & \frac{2}{7}
     \end{array}
-    \]
+    $$
 
 Notem que a soma das colunas da tabela são iguais a um, isto é,
-    \[
+    $$
     \left\{
     \begin{array}{l}
     \sum_x P(X_1 = x|X_2 = y) = 1, \quad y = 0, 1 \\
     \sum_y P(X_2 = y|X_1 = x) = 1, \quad x = 0, 1
     \end{array}
     \right.
-    \]
+    $$
 
 \subsection{Exercício 5}
 Seja a variável aleatória bidimensional $(X, Y)$ com função densidade de probabilidade conjunta,
@@ -1821,7 +1821,7 @@ Multiplicando todos os termos por 3 para eliminar os denominadores:
 Portanto, o número esperado de horas que o trabalhador leva até sair da mina em segurança é igual a 10 horas.
 
 \subsection{Exercício 2}
-Um jogador de futebol participará de uma partida e sua posição depende da estratégia definida pelo treinador. Se ele jogar no ataque, a probabilidade de fazer gols tem distribuição de Poisson com taxa igual a 2 gols por jogo. Se atuar no meio de campo, a taxa é de um gol por jogo. Assuma que a probabilidade do jogador atuar no ataque é igual a $2/3$ e no meio de campo, $1/3$. Qual é o número esperado de gols que o jogador fará durante a temporada?
+Um jogador de futebol participará de uma partida e sua posição depende da estratégia definida pelo treinador. Se ele jogar no ataque, a probabilidade de fazer gols tem Distribuição de Poisson com taxa igual a 2 gols por jogo. Se atuar no meio de campo, a taxa é de um gol por jogo. Assuma que a probabilidade do jogador atuar no ataque é igual a $2/3$ e no meio de campo, $1/3$. Qual é o número esperado de gols que o jogador fará durante a temporada?
 
 \vspace{0.5cm}
 \textbf{Solução:} 
@@ -1839,7 +1839,7 @@ Assim, $P(Y = 0) = 1/3$ e $P(Y = 1) = 2/3$. As taxas associadas são $\lambda_{Y
     E[X] = E[X|Y = 0]P(Y = 0) + E[X|Y = 1]P(Y = 1) = 1\left(\frac{1}{3}\right) + 2\left(\frac{2}{3}\right).
     $$
 
-Notem que $X$ tem distribuição de Poisson, logo 
+Notem que $X$ tem Distribuição de Poisson, logo 
     $$
     E[X|Y = y] = \lambda_{Y=y}, 
     $$ 
@@ -1847,7 +1847,7 @@ sendo $y = 0, 1$. Portanto, o número médio de gols por jogo deve ser próximo 
 
 \section{Estimação Pontual}
 \subsection{Exercício 1}
-Suponha que temos uma população cuja variável de interesse segue uma distribuição Gaussiana com média $\mu$ e variância $\sigma^2$. Encontre os estimadores de máxima verossimilhança para a média e a variância.
+Suponha que temos uma população cuja variável de interesse segue uma Distribuição Gaussiana com média $\mu$ e variância $\sigma^2$. Encontre os estimadores de máxima verossimilhança para a média e a variância.
 
 \vspace{0.5cm}
 \textbf{Solução:} 
@@ -1934,7 +1934,7 @@ Encontre o estimador de máxima verossimilhança de uma população binomial.
 
 \vspace{0.5cm}
 \textbf{Solução:} 
-Nesse caso, temos que cada elemento da amostra é uma realização de uma distribuição binomial com parâmetro $\theta = p$, que define a probabilidade sucesso. Assim,
+Nesse caso, temos que cada elemento da amostra é uma realização de uma Distribuição Binomial com parâmetro $\theta = p$, que define a probabilidade sucesso. Assim,
     $$X_i \sim Binomial(m, \theta), \quad i = 1, 2, \ldots, n,$$
 onde $m$ representa o número de experimentos, cuja saída apresenta apenas dois valores possíveis, como nos lançamentos de uma moeda. Por exemplo, se $m = 5$, uma saída possível seria $\{0, 1, 1, 0, 0\}$, sendo que $X_i = 1$ representa um sucesso e $X_i = 0$, uma falha. Usamos $m$ em vez de $n$, porque aqui definimos $n$ como sendo o tamanho da amostra. Vamos supor que $m$ é conhecido e queremos estimar $\theta$.
 
@@ -1952,14 +1952,14 @@ Derivando e igualando a zero, temos:
 Resolvendo, obtemos:
     $$\hat{\theta} = \frac{1}{nm}\sum_{i=1}^n X_i.$$
 
-Portanto, este é o estimador de verossimilhança do parâmetro $\theta$ para uma distribuição Binomial com parâmetro $m$ (número de experimentos) e $\theta$ (probabilidade de sucesso).
+Portanto, este é o estimador de verossimilhança do parâmetro $\theta$ para uma Distribuição Binomial com parâmetro $m$ (número de experimentos) e $\theta$ (probabilidade de sucesso).
 
 \subsection{Exercício 3}
 Determine o estimador de máxima verossimilhança para uma amostra obtida de uma população que segue o modelo exponencial com parâmetro $\theta$.
 
 \vspace{0.5cm}
 \textbf{Solução:} 
-A função de densidade de probabilidade da distribuição exponencial é dada por:
+A função de densidade de probabilidade da Distribuição Exponencial é dada por:
     $$
     f(x) = 
     \begin{cases}
@@ -2000,12 +2000,12 @@ Resolvendo, obtemos o estimador de máxima verossimilhança de uma população q
     
 \subsection{Exercício 4}
 Suponha que $X$ é uma variável aleatória discreta com distribuição de probabilidade dada a seguir.
-    \[
+    $$
     \begin{array}{c|cccc}
     X & 0 & 1 & 2 & 3 \\ \hline
     P(X = x_i) & \frac{2\theta}{3} & \frac{\theta}{3} & \frac{2(1-\theta)}{3} & \frac{1-\theta}{3}
     \end{array}
-    \]
+    $$
 
 Uma amostra obtida a partir dessa distribuição contém os seguintes valores 
     $$
@@ -2088,7 +2088,7 @@ Vamos calcular $P(\bar{X} > 5)$:
     = P(Z > 0.34) = 1 - P(Z < 0.34) = 0.36
     $$
 
-Notem que como a distribuição da média amostral tende a uma normal, usamos a distribuição normal padronizada.
+Notem que como a distribuição da média amostral tende a uma normal, usamos a Distribuição Normal padronizada.
 
 \subsection{Exercício 2}
 O tempo que um cliente gasta em um banco, em minutos, segue o modelo exponencial com parâmetro igual a $1/5$. Observando-se uma amostra aleatória de 50 pessoas que passaram pelo banco, qual será a probabilidade de que a média dessa amostra não ultrapasse 6 minutos?
@@ -2182,7 +2182,7 @@ Então
 
 \section{Função Geratriz de Momentos}
 \subsection{Exercício 1}
-Seja $X$ uma variável aleatória com distribuição de Poisson. Calcule a função geratriz de momentos e obtenha $E[X^2]$.
+Seja $X$ uma variável aleatória com Distribuição de Poisson. Calcule a função geratriz de momentos e obtenha $E[X^2]$.
 
 \vspace{0.5cm}
 \textbf{Solução:} 
@@ -2223,11 +2223,11 @@ Portanto:
     $$
 
 \subsection{Exercício 2}
-Seja $X$ uma variável aleatória com distribuição de Poisson. Calcule a função geratriz de momentos e obtenha $E[X^2]$.
+Seja $X$ uma variável aleatória com Distribuição de Poisson. Calcule a função geratriz de momentos e obtenha $E[X^2]$.
 
 \vspace{0.5cm}
 \textbf{Solução:} 
-Seja X uma variável aleatória com distribuição Normal. Calcule a função geratriz de momentos e obtenha $E[X^2]$.
+Seja X uma variável aleatória com Distribuição Normal. Calcule a função geratriz de momentos e obtenha $E[X^2]$.
     $$
     M_Z(t) = E[e^{tZ}] 
     = \int_{-\infty}^{\infty} e^{tz} \frac{e^{-z^2/2}}{\sqrt{2\pi}} dz
@@ -2284,7 +2284,7 @@ O segundo momento:
     $$
 
 \subsection{Exercício 3}
-Calcule o segundo momento da distribuição qui-quadrado.
+Calcule o segundo momento da Distribuição Qui-Quadrado.
     $$
     f(x; k) = 
     \begin{cases}
@@ -2342,7 +2342,7 @@ Calcule o segundo momento da distribuição qui-quadrado.
 
 \section{Intervalos de Confiança}
 \subsection{Exercício 1}
-Em uma empresa de venda de alimentos online, verificou-se que o tempo necessário para uma entrega tem distribuição normal com média $\mu = 30$ minutos e desvio padrão igual $\sigma = 10$ minutos. 
+Em uma empresa de venda de alimentos online, verificou-se que o tempo necessário para uma entrega tem Distribuição Normal com média $\mu = 30$ minutos e desvio padrão igual $\sigma = 10$ minutos. 
 Em uma amostra de $n = 50$ entregadores, observou-se um tempo médio de $\bar{X}_{50} = 25$ minutos. 
 Determine o intervalo de confiança de 95\% para a média $\mu$ de todos os entregadores da empresa.
 
@@ -2353,7 +2353,7 @@ Como o nível de confiança é de 95\%, isto é,
     1 - \alpha = 0.95 \quad \Rightarrow \quad \alpha = 0.05.
     $$
 
-Pela tabela da distribuição normal, obtemos
+Pela tabela da Distribuição Normal, obtemos
     $$
     z_{0.05/2} = 1.96.
     $$
@@ -2466,5 +2466,407 @@ $z_{\alpha/2} = 1,64$. Assim,
 
 Portanto, podemos afirmar com 90\% de confiança que o intervalo [0,159; 0,241] contém a proporção populacional, ou seja, a fração de pessoas que devem votar no partido político. Notem que como esse é um intervalo conservador, ele é maior do que o calculado no exercício anterior.
 
+\section{Testes de Hipótese}
+\subsection{Exercício 1}
+Em uma fábrica, engenheiros verificaram que o tempo de funcionamento de uma máquina até que ocorra uma falha, é normalmente distribuído com média igual a 206 dias, com desvio padrão igual a 12 dias. Uma atualização de componentes foi feita em 30 máquinas, de modo a deixá-las mais robustas e aumentar esse tempo de funcionamento. Nessa amostra, verificou-se que o tempo médio até falhar foi de 210 dias. Ao nível 10\%, podemos acreditar que a atualização deixou as máquinas mais robustas?
+
+\vspace{0.5cm}
+\textbf{Solução:}
+Como hipótese nula, vamos assumir que a atualização não aumentou o tempo de funcionamento. Assim, temos as hipóteses:
+\begin{itemize}
+    \item $H_0: \mu = 206$ dias
+    \item $H_1: \mu > 206$ dias
+\end{itemize}
+
+Calculando a probabilidade de erro do tipo I:
+    $$
+    \alpha = P(\text{Rejeitar } H_0 | H_0 \text{ é verdadeira}) = 0.10.
+    $$
+Portanto:
+    $$
+    \alpha = P(\bar{X} > \bar{x}_c | \mu = 206) = 0.10.
+    $$
+
+Como a população tem Distribuição Normal, as amostras também seguem uma normal, uma vez que são independentes e identicamente distribuídas. Vamos transformar $\bar{X}$ em $Z$ de modo que possamos usar a Distribuição Normal padronizada:
+    $$
+    \alpha = P\left(\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} > \frac{\bar{x}_c - \mu}{\sigma/\sqrt{n}} \middle| \mu = 206 \right) = 0.10
+    $$
+
+Usando o Teorema Central do Limite,
+    $$
+    Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim \mathcal{N}(0,1),
+    $$
+temos:
+    $$
+    \alpha = P\left(Z > \frac{\bar{x}_c - 206}{12/\sqrt{30}}\right) = 0.10,
+    $$
+onde $\sigma = 12$ dias é conhecido. Temos que $P(Z > z_\alpha) = 0.10$ é o mesmo que $P(Z < z_\alpha) = 0.90$.
+
+Assim, obtemos $P(Z > 1.28) = 0.10$. Desse modo,
+    $$
+    \frac{\bar{x}_c - 206}{12/\sqrt{30}} = 1.28.
+    $$
+
+Portanto,
+    $$
+    \bar{x}_c = 208.8 \text{ dias}.
+    $$
+
+Como esse valor é menor do que o valor observado ($\bar{x}_{obs} = 210$ dias $> \bar{x}_c$), rejeitamos a hipótese nula ao nível 10\%. Logo, há evidências de que a atualização deixou as máquinas mais robustas.
+
+\subsection{Exercício 2}
+Uma empresa acredita que o seu novo vídeo com propaganda de produtos em promoção aumenta o interesse de usuários. O vídeo anterior era visualizado, em média, por 12 segundos. Uma amostra de 5 visualizações do novo vídeo ofereceu o seguintes valores (em segundos): 14.4; 12.9; 15; 13.7; 13.5. Qual conclusão a empresa pode chegar ao nível de 1\% de significância?
+
+\vspace{0.5cm}
+\textbf{Solução:}
+Como a empresa está interessada em verificar se o novo vídeo é mais interessante para o usuário do que o vídeo anterior, estabelecemos as seguintes hipóteses:
+    $$
+    H_0 : \mu = 12s
+    $$
+    $$
+    H_1 : \mu > 12s
+    $$
+
+Pois quanto maior o tempo de visualização, melhor é a aceitação do vídeo. Calculando a probabilidade de erro do tipo I, isto é, a probabilidade de rejeitar $H_0$ dado que $H_0$ é verdadeira:
+    $$
+    \alpha = P(\bar{X} > \bar{x}_c | \mu = 12) = 0.01
+    $$
+
+Como o desvio padrão não é conhecido e a amostra é pequena ($n=5$), devemos usar a Distribuição t de Student:
+    $$
+    P(\bar{X} > \bar{x}_c | \mu = 12) 
+    = P\left( \frac{\bar{X} - \mu}{s/\sqrt{n}} > \frac{\bar{x}_c - \mu}{s/\sqrt{n}} \middle| \mu = 12 \right) 
+    = P\left(T > \frac{\bar{x}_c - 12}{0.82/\sqrt{5}}\right) = 0.01,
+    $$
+onde $s$ é o desvio padrão amostral (equação (??)) calculado usando-se a amostra coletada. Temos que 
+    $$
+    P(T > t_{\alpha, n-1}) = 0.01 \Leftrightarrow P(T < t_{\alpha, n-1}) = 0.99.
+    $$
+Usando o Python, obtemos o valor $t_{0.01;4} = 3.747$.
+
+Assim,
+    $$
+    \frac{\bar{x}_c - 12}{0.82/\sqrt{5}} = t_{0.01;4} = 3.747.
+    $$
+
+Resolvendo,
+    $$
+    \bar{x}_c = 13.4s.
+    $$
+
+Calculando a média da amostra observada:
+    $$
+    \bar{x}_{obs} = \frac{14.4 + 12.9 + 15 + 13.7 + 13.5}{5} = 13.9s.
+    $$
+
+Portanto, como $\bar{x}_{obs} > \bar{x}_c$, rejeitamos $H_0$ com 99\% de confiança. Logo, há evidências de que a nova propaganda apresenta um tempo de visualização maior do que a anterior.
+
+\subsection{Exercício 3}
+Em uma cidade, acredita-se que 60\% das pessoas aprovam o atual prefeito. Uma pesquisa foi realizada com 200 indivíduos, onde verificou-se que 104 entrevistados disseram que aprovam o atual governo. Faça um teste ao nível 5\% para determinar se a aprovação do prefeito é realmente igual a 60\%.
+
+\vspace{0.5cm}
+\textbf{Solução:}
+Vamos considerar que a aprovação máxima do prefeito será igual a 60\%, de modo que a mesma pode ser menor. Assim, sejam as hipóteses:
+    $$
+    H_0 : p = 0.6
+    $$
+    $$
+    H_1 : p < 0.6
+    $$
+
+Calculando a probabilidade de erro do tipo I, ou seja, a probabilidade de rejeitar $H_0$ dado que $H_0$ é verdadeira:
+    $$
+    \alpha = P(\hat{p} < \hat{p}_c | p = 0.6) = 0.05
+    $$
+    $$
+    P\left( 
+    \frac{\hat{p} - p}{\sqrt{p(1-p)/n}} 
+    <
+    \frac{\hat{p}_c - p}{\sqrt{p(1-p)/n}} 
+    \bigg| p = 0.6 
+    \right) = 0.05
+    $$
+    $$
+    P\left(
+    Z <
+    \frac{\hat{p}_c - 0.6}{\sqrt{0.6(1-0.6)/200}}
+    \right) = 0.05
+    $$
+
+Usando o código em Python, obtemos $z_\alpha = -1.64$.
+
+Assim,
+    $$
+    \frac{\hat{p}_c - 0.6}{\sqrt{0.6(1-0.6)/200}} = -1.64
+    $$
+
+Resolvendo, vamos obter 
+    $$
+    \hat{p}_c = 0.54
+    $$
+    
+Calculando a fração observada:
+    $$
+    \hat{p}_{obs} = \frac{104}{200} = 0.52
+    $$
+
+Como $\hat{p}_{obs} < \hat{p}_c$, rejeitamos $H_0$ ao nível de 5\%. Ou seja, a fração de pessoas que aprovam o atual prefeito deve ser menor do que 60\%.
+
+\subsection{Exercício 4}
+O departamento de obras de uma cidade abriu uma nova rota para melhorar o fluxo de carros no centro da cidade. Dados anteriores mostram que o tempo para ir do subúrbio ao centro é uma variável aleatória com distribuição normal com média $\mu = 30$ minutos e desvio padrão $\sigma = 3$ minutos. As 10 primeiras viagens considerando a nova rota resultaram em uma média igual 28 minutos. Esse resultado mostra que nova rota é mais rápida do que a anterior?
+
+\vspace{0.5cm}
+\textbf{Solução:}
+A hipótese nula é a que aceitamos sem realizar qualquer experimento. Ou seja, assumimos que essa nova rota é igual à anterior, não levando a nenhuma melhora nesse tempo. Assim,
+    $$
+    H_0: \mu = 30 \text{ minutos}
+    $$
+    $$
+    H_1: \mu < 30 \text{ minutos}
+    $$
+
+Usando a definição do valor $p$:
+    $$
+    P(\bar{X} < 28 | \mu = 30) = P\left(\frac{\bar{X} - \mu}{\sigma / \sqrt{n}} < \frac{28 - \mu}{\sigma / \sqrt{n}} \Big| \mu = 30\right)
+    $$
+    $$
+    = P\left(Z < \frac{28 - 30}{3 / \sqrt{10}}\right)
+    $$
+    $$
+    = P(Z < -2.11) = 0.02.
+    $$
+
+Logo, como o valor $p$ é igual a 0.02, há uma forte evidência para rejeitarmos $H_0$, ou seja, há evidências de que a nova rota diminui o tempo do trajeto do subúrbio ao centro da cidade.
+
+\subsection{Exercício 5}
+Assume-se que pressão arterial humana tem média igual a $\mu = 120$ mm Hg. Em um estudo com um grupo de $n = 10$ pacientes idosos, observou-se uma pressão média igual a $130.1$ mmHg e desvio padrão $21.21$ mmHg. Esse grupo tem pressão arterial mais alta do que a população em geral?
+
+\vspace{0.5cm}
+\textbf{Solução:}
+Vamos considerar as hipóteses:
+    $$
+    H_0 : \mu = 120 \text{ mmHg}
+    $$
+    $$
+    H_1 : \mu > 120 \text{ mmHg}
+    $$ 
+
+Notem que a variância da população é desconhecida. Logo, devemos usar a distribuição t de Student, já que a amostra é pequena. Desse modo, calculando o valor $p$:
+    $$
+    P(\bar{X} > 130.1|\mu = 120) = P\left(\frac{\bar{X} - \mu}{s/\sqrt{n}} > \frac{130.1 - \mu}{s/\sqrt{n}}\middle|\mu = 120\right)
+    $$
+    $$
+    = P\left(T > \frac{130.1 - 120}{21.21/\sqrt{10}}\right)
+    $$
+    $$
+    = P(T > 1.505)
+    $$
+    $$
+    = 1 - P(T < 1.505)
+    $$
+    $$
+    = 1 - 0.92
+    $$
+    $$
+    = 0.08
+    $$
+
+Logo, como o valor $p$ é igual a $0.08$, há evidências para rejeitarmos $H_0$, ou seja, para afirmar que a pressão arterial do grupo de idosos é maior do que a da população em geral.
+
+\subsection{Exercício 6}
+Estudantes acreditam que a média de todas as turmas em um curso de estatística é igual a 65. O professor acredita que a média é maior. Para verificar essa hipótese, ele seleciona notas de 10 estudantes, escolhidos de forma aleatória, obtemos os valores 65, 65, 70, 67, 66, 63, 63, 68, 72, 71. Calcule o valor $p$.
+
+\vspace{0.5cm}
+\textbf{Solução:}
+Vamos testar as seguintes hipóteses:
+    $$
+    H_0 : \mu = 65
+    $$
+    $$
+    H_1 : \mu > 65.
+    $$
+
+Usando os dados, temos que o desvio padrão amostral é igual a 
+    $$
+    s = 3.19
+    $$
+e a média da amostra coletada,
+    $$
+    \bar{x}_{obs} = 67.
+    $$
+Vamos calcular o erro do tipo I. Como não conhecemos a variância populacional e a amostra é pequena, usamos a distribuição t de Student:
+    $$
+    P(\bar{X} > \bar{x}_c|\mu = 65) = P\left( \frac{\bar{X} - \mu}{s/\sqrt{n}} > \frac{\bar{x}_c - \mu}{s/\sqrt{n}}\middle|\mu = 65\right) = P\left( T > \frac{\bar{x}_c - 65}{3.19/\sqrt{10}}\right) = 0.05.
+    $$
+
+Pelo código, obtemos 
+    $$
+    t_{0.05, 9} = -1.65.
+    $$
+
+Assim,
+    $$
+    \frac{\bar{x}_c - 65}{3.19/\sqrt{10}} = -1.65.
+    $$
+
+Resolvendo,
+    $$
+    \bar{x}_c = 63.33.
+    $$
+
+Como $\bar{x}_{obs} > \bar{x}_c,$ rejeitamos $H_0$ com 95\% de confiança. Assim, a amostra nos leva a concluir que o valor médio do teste é maior do que 65, sugerindo que a hipótese do professor não deve ser rejeitada.
+
+Calculando o valor $p$:
+    $$
+    P(\bar{X} > \bar{x}_{obs}|\mu = 65) = 1 - \alpha
+    $$
+    $$
+    P(\bar{X} > 67|\mu = 65) = 1 - \alpha
+    $$
+    $$
+    P\left(\frac{\bar{X} - \mu}{s/\sqrt{n}} > \frac{67 - \mu}{s/\sqrt{n}}\middle|\mu = 65\right) = \alpha
+    $$
+    $$
+    P\left( T > \frac{67 - 65}{3.19/\sqrt{10}}\right) = 1 - \alpha
+    $$
+    $$
+    P(T > 1.97) = 1 - \alpha.
+    $$
+
+Portanto, para nove graus de liberdade 
+    $$
+    (n = 10),
+    $$
+temos:
+    $$
+    \alpha = 0.039.
+    $$
+
+Portanto, há uma forte evidência para rejeitarmos $H_0,$ indicando que as notas devem ser maior do que 65.
+
+\section{Teste Qui-Quadrado}
+\subsection{Exercício 1}
+Suponha que lançamos um dado 60 vezes, obtendo os valores na tabela a seguir. Realize um teste de hipóteses para verificar se o dado é justo.
+    $$
+    \begin{array}{c|cccccc}
+    X & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+    \text{Observado (número de vezes)} & 11 & 7 & 9 & 15 & 12 & 6 \\
+    \text{Esperado} & 10 & 10 & 10 & 10 & 10 & 10
+    \end{array}
+    $$
+
+\vspace{0.5cm}
+\textbf{Solução:}
+Considerando os dados na tabela, quando lançamos o dado 60 vezes, o valor 1 saiu 11 vezes, o valor 2, 7 vezes, e assim por diante. Se o dado for justo, a probabilidade de sair cada face é 
+    $$
+    P(X = i) = \frac{1}{6}, \quad i = 1, 2, 3, 4, 5, 6,
+    $$
+onde $X$ representa o valor na face superior do dado. Logo, como lançamos o dado 60 vezes, o número esperado de vezes que saia cada valor na face superior é 
+    $$
+    60 \times \frac{1}{6} = 10.
+    $$
+
+Vamos definir as seguintes hipóteses:
+    $$
+    H_0: p_i = \frac{1}{6}, \quad i = 1, 2, \ldots, 6.
+    $$
+    $$
+    H_1: p_i \neq \frac{1}{6} \quad \text{para ao menos um valor } i.
+    $$
+
+Portanto, assumimos como hipótese nula que o dado é justo. Na hipótese alternativa, se ao menos um dos valores da face for mais provável do que os demais, temos que o dado não é honesto.
+
+Assim:
+    $$
+    \chi^2 = \frac{(11 - 10)^2}{10} + \frac{(7 - 10)^2}{10} + \frac{(6 - 10)^2}{10} + \ldots = 5,6.
+    $$
+
+É possível mostrar que $\chi^2$ segue a distribuição qui-quadrado com $k = s - 1$ graus de liberdade, onde $s$ é o número de termos no somatório, que é o número de grupos ou categorias. Logo, nesse exemplo, $k = 5,$ pois o dado tem seis faces.
+
+\subsection{Exercício 2}
+Em um estudo com 395 participantes, pesquisadores coletaram dados sobre escolaridade de funcionários em dois setores de uma empresa de tecnologia. Os dados são mostrados na tabela a seguir.
+    $$
+    \begin{array}{l|c|c|c|c|c}
+     & \text{Fundamental} & \text{Médio} & \text{Técnico} & \text{Graduação} & \text{Total}\\ \hline
+    \text{Setor 1} & 60 & 54 & 46 & 41 & 201\\
+    \text{Setor 2} & 40 & 44 & 53 & 57 & 194\\
+    \text{Total} & 100 & 98 & 99 & 98 & 395\\
+    \end{array}
+    $$
+
+Podemos afirmar que há diferença entre o nível educacional nos dois setores da empresa?
+
+\vspace{0.5cm}
+\textbf{Solução:}
+A tabela acima é chamada tabela de contingência, que é usada para registrar observações independentes de duas ou mais variáveis aleatórias, normalmente qualitativas.
+Para compararmos os dois setores, vamos realizar o teste qui-quadrado. Para isso, comparamos os valores observados com os valores esperados caso o nível de escolaridade fosse independente do setor.
+Ou seja, nossa hipótese nula é que não há diferença entre os setores com relação ao nível de escolaridade. Assim, o número esperado de funcionários do setor 1 com ensino fundamental é igual a
+    $$
+    E = np = 100\left(\frac{201}{395}\right),
+    $$
+pois $p = 201/395$ é a fração de funcionários que pertencem ao setor 1.
+
+Assim, temos:
+    $$
+    \chi^2 = \frac{(60-100(201/395))^2}{100(201/395)} + 
+    \frac{(54-98(201/395))^2}{98(201/395)} + 
+    \ldots +
+    \frac{(57-98(194/395))^2}{98(194/395)} = 8.006.
+    $$
+
+Usando o código para $k = s-1 = 3$ graus de liberdade (pois temos quatro variáveis, isto é, níveis fundamental, médio, técnico e graduação), obtemos $\alpha = 0.045$
+Portanto, como esse valor $p$ é bastante baixo, podemos rejeitar a hipótese nula. Ou seja, o nível de escolaridade depende do setor.
+
+\section{Testes Pareados}
+\subsection{Exercício 1}
+Uma empresa farmacêutica desenvolve uma nova droga para reduzir o nível de triglicerídeos no sangue. São coletados dados de 10 pacientes, antes e depois da administração da droga, conforme a tabela a seguir.
+    $$
+    \begin{array}{c|c|c|c|c|c|c|c|c|c|c}
+    \text{Paciente} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    \hline
+    \text{Antes} & 250 & 180 & 200 & 190 & 200 & 210 & 250 & 200 & 200 & 160 \\
+    \text{Depois} & 220 & 190 & 160 & 180 & 210 & 180 & 170 & 150 & 150 & 140 \\
+    \end{array}
+    $$
+
+\vspace{0.5cm}
+\textbf{Solução:}
+O valor médio antes do tratamento é igual a $\bar{x} = 204$ e após, $\bar{y} = 175$. O efeito produzido pela droga no $i$-ésimo paciente é dado pela variável aleatória $D_i = X_i - Y_i$, sendo $X_i$ e $Y_i$ a taxa de triglicerídeos antes e depois do tratamento, respectivamente. Vamos supor que $D_i \sim \mathcal{N}(\mu_D, \sigma^2_D), \ i = 1, 2, \ldots, n$. Assim, queremos testar as hipóteses:
+    $$
+    H_0 : \mu_D = 0
+    $$
+    $$
+    H_1 : \mu_D > 0.
+    $$
+
+Sendo $\mu_D = \mu_X - \mu_Y$, que representa a diferença entre os níveis de triglicerídeos antes e depois do tratamento.
+Portanto, a hipótese nula implica que não há diferença entre os níveis médios de triglicerídeos antes e depois da aplicação da droga. Na hipótese alternativa, vamos analisar se a droga diminui o nível de triglicerídeos, isto é, $\mu_D > 0$ implica que $\mu_X > \mu_Y$, pois $\mu_D = \mu_X - \mu_Y$.
+
+Conforme observamos, o teste é análogo ao que realizamos anteriormente. O estimador de $\mu_D$ é dado pela diferença média entre os valores medidos de triglicerídeos:
+    $$
+    \bar{D} = \frac{\sum_{i=1}^n (X_i - Y_i)}{n} = \frac{\sum_{i=1}^n D_i}{n}.
+    $$
+
+Como não temos informações sobre a variância de $D$, usamos o estimador:
+    $$
+    s_D^2 = \frac{1}{n-1}\sum_{i=1}^n (D_i - \bar{D})^2.
+    $$
+
+Calculando para a amostra, temos $\bar{d} = 29$ e $s_D = 39.59$. A estatística do teste:
+    $$
+    T = \frac{\bar{D} - \mu_D}{s_D / \sqrt{n}},
+    $$
+tem Distribuição t-Student com $n-1$ graus de liberdade. Vamos calcular o valor $p$:
+    $$
+    P(\bar{D} > \bar{d}|\mu_D = 0) = P\left(\frac{\bar{D} - \mu_D}{s_d/\sqrt{n}} > \frac{\bar{d} - \mu_D}{s_d/\sqrt{n}}\bigg|\mu_D = 0\right)
+    $$
+    $$
+    = P\left(T > \frac{29}{39.59/\sqrt{10}}\right)
+    $$
+    $$
+    = P(T > 2.31) = 0.022.
+    $$
+
+Logo, como o valor $p$ é bastante baixo, devemos rejeitar $H_0$, indicando que a nova droga é eficaz para baixar o nível de triglicerídeos dos pacientes.
 
 \end{document}

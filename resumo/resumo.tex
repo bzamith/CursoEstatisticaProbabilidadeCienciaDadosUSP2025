@@ -1577,6 +1577,186 @@ Assim, de maneira geral, para calculamos o intervalo de confiança com o método
     \item Se a distribuição obtida é aproximadamente simétrica, construa o intervalo de confiança de $(1-\alpha)100\%$ encontrando os percentis, de modo que a proporção de observações entre os percentis seja $1-\alpha$.
 \end{itemize}
 
-% \section{Testes de Hipótese}
+\section{Testes de Hipótese}
+\begin{itemize}
+    \item Imaginem que um acusado será julgado em um tribunal. Inicialmente, antes de coletarmos as evidências, assumimos que o acusado é inocente, sendo essa a hipótese nula, que chamamos de $H_0$.
+    \item Para provar que o mesmo é culpado, precisamos coletar provas, de modo a rejeitar $H_0$. Essa hipótese alternativa, ou seja, o acusado é culpado, chamamos de $H_1$ (ou $H_a$), que é a hipótese alternativa, contrária à $H_0$. Assim, no teste de hipóteses desse exemplo, vamos ter duas hipóteses:
+    \begin{itemize}
+        \item Hipótese nula ($H_0$): o acusado é inocente.
+        \item Hipótese alternativa ($H_1$): o acusado é culpado.
+    \end{itemize}
+    \item Nosso objetivo é sempre rejeitar ou aceitar (na verdade, deixar de rejeitar) a hipótese nula $H_0$, com base nos dados coletados.
+    \item De uma maneira geral, dizemos que a falha na rejeição da hipótese nula implica a sua aceitação.
+    \item No entanto, essa afirmação não implica que $H_0$ é verdadeira, mas que há evidência para aceitar essa hipótese com um dado nível de significância.
+    \item Notem que o teste é baseado apenas na amostra coletada, de modo que se coletarmos outra amostra, talvez o resultado do teste mude.
+    \item Em inferência estatística, uma hipótese é feita com relação a um parâmetro da população.
+    \item Para testar uma hipótese, extraímos amostras independentes e identicamente distribuídas.
+    \item Analisando essa amostra, podendo chegar a duas possíveis decisões:
+    \begin{itemize}
+        \item Falhar na rejeição da hipótese nula (aceitar $H_0$).
+        \item Rejeitar a hipótese nula.
+    \end{itemize}
+    \item No teste de hipóteses podemos cometer os erros dos tipos I e II, conforme indicado na tabela.
+        $$
+        \begin{array}{c|c|c}
+         & H_0 \text{ é verdadeira} & H_0 \text{ é falsa} \\
+        \hline
+        \text{Rejeitar } H_0 & \text{Erro do tipo I } (\alpha) & \text{Sem erro} \\
+        \hline
+        \text{Aceitar } H_0 & \text{Sem erro} & \text{Erro do tipo II } (\beta) \\
+        \end{array}
+        $$
+    \item Assim, podemos definir as probabilidades de cometer os erros no teste de hipóteses:
+        $$
+        P(\text{``Erro do tipo I''}) = P(\text{Rejeitar } H_0 | H_0 \text{ é verdadeira}) = \alpha
+        $$
+        $$
+        P(\text{``Erro do tipo II''}) = P(\text{Aceitar } H_0 | H_0 \text{ é falsa}) = \beta
+        $$
+    \item Para formular o teste de hipóteses, geralmente definimos $H_0$ em termos de um parâmetro da população. Ou seja, representamos:
+        $$
+        H_0 : \theta = \theta_0,
+        $$
+    onde afirmamos que o parâmetro $\theta$ da população é $\theta_0$.  
+    A hipótese alternativa $H_1$, também representada por $H_a$, pode ter uma das seguintes formas:
+        $$
+        H_1 : \theta > \theta_0,
+        $$
+        $$
+        H_1 : \theta < \theta_0,
+        $$
+        $$
+        H_1 : \theta \neq \theta_0.
+        $$
+    Em qualquer uma dessas decisões, podemos cometer erros.
+\end{itemize}
+
+\textbf{Em resumo, podemos realizar o teste de hipóteses considerando os seguintes passos}:
+\begin{enumerate}
+    \item Estabelecemos a hipótese nula e a alternativa:  
+       $$
+       H_0 : \theta = \theta_0 
+       $$
+       $$
+       H_1 : 
+       \begin{cases} 
+       \theta < \theta_0 \\ 
+       \theta > \theta_0 \\ 
+       \theta \neq \theta_0.
+       \end{cases}
+       $$
+   \item Definimos a região crítica com base na hipótese alternativa.
+   \item Fixamos o nível de significância $\alpha$ e encontramos a região crítica.
+   \item Obtemos a estimativa $\hat{\theta}_{obs}$ baseada nas observações disponíveis.
+   \item Concluímos o teste com base na estimativa e na região crítica.  
+\end{enumerate}
+Esse procedimento vale para qualquer parâmetro da população, tais como a média ou proporção.
+
+Podemos ainda realizar o teste de hipóteses no caso de variáveis aleatórias binárias. Seja $X_i = 1$ se a observação $i$ possui uma certa característica, ou $X_i = 0$, caso contrário. As probabilidades são dadas por $P(X_i = 1) = p$ e $P(X_i = 0) = 1-p$, isto é, $X_i$ tem Distribuição de Bernoulli. Definimos 
+    $$
+    Y_n = X_1 + X_2 + \ldots + X_n,
+    $$
+que representa o número de observações que possuem a característica. Então, a proporção de observações com a característica é dada por
+    $$
+    \hat{p} = \frac{Y_n}{n}.
+    $$
+
+Usando o Teorema Central do Limite, temos que
+    $$
+    Z = \frac{p - \hat{p}}{\sqrt{p(1-p)/n}} \sim \mathcal{N}(0, 1).
+    $$
+
+\subsection{Valor $p$}
+Se variamos $\alpha$ continuamente, conforme mostramos na Figura~\ref{fig:valor_p} abaixo, notamos que a região de aceitação da hipótese nula vai mudando de acordo com $\alpha$. Para $\alpha = 0.23$ passamos a rejeitar $H_0$. Esse valor é chamado valor $p$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuras/valor_p.png}
+    \caption{Valor $p$.}
+    \label{fig:valor_p}
+\end{figure}
+
+O valor $p$ é o menor nível de significância $\alpha$ no qual é possível rejeitar a hipótese nula. Podemos ainda interpretar esse valor como a probabilidade de observar os dados se a hipótese nula for verdadeira:
+    $$
+    \alpha = P(\text{dados} \mid H_0 \text{ é verdadeira}).
+    $$
+
+Para $p = 0.01$, temos que, em média, em apenas um dentre 100 experimentos, a hipótese nula será aceita. Se $p = 0.1$, em 10 de 100 experimentos, e assim sucessivamente. Ou seja, quanto menor o valor $p$, maior é a evidência contra a aceitação de $H_0$. Geralmente, rejeitamos $H_0$ quando o valor $p$ é menor ou igual a 0.05 ($p \leq 0.05$).
+
+\section{Teste Qui-Quadrado}
+\begin{itemize}
+    \item O teste qui-quadrado foi proposto pelo matemático inglês Karl Pearson (1857-1936) em 1900.
+    \item Nesse teste, podemos comparar distribuições e verificar se valores obtidos estão de acordo com o esperado.
+    \item Por exemplo, podemos verificar se a saída de um dado, após um grande número de lançamentos, corresponde à saída de um dado justo.
+    \item Para realizar o teste qui-quadrado, precisamos calcular a seguinte métrica:
+        $$
+        \chi^2 = \sum_{i=1}^{s} \frac{(O_i - E_i)^2}{E_i},
+        $$
+    onde $O_i$ é o valor observado e $E_i$ é o valor esperado.
+\end{itemize}
+
+\section{Testes Pareados}
+O teste de hipóteses pode ser usado para comparar a média de duas populações.
+
+Suponha que temos $n$ pacientes que vão ser submetidos a um tratamento para diminuir o nível de colesterol. Inicialmente, medimos o colesterol antes do tratamento. Após tomar a medicação, esperamos um dado período de tempo e fazemos a medição novamente. Usando o teste de hipóteses, podemos comparar o colesterol médio, considerando todos os pacientes, antes e depois do tratamento. Desse modo, podemos verificar se a medicação é efetiva.
+
+Nesse caso, notem que as amostras antes e depois do tratamento são dependentes. Ou seja, as medidas são tomadas em um único indivíduo em dois pontos distintos no tempo. Quando temos esse tipo de dado, o teste de hipóteses é chamado teste pareado. Notem que se as medidas são feitas em um mesmo indivíduo, uma certa variabilidade biológica é eliminada, uma vez que não temos que nos preocupar com o fato de um indivíduo ser homem ou mulher ou mesmo ser mais jovem do que outro. Com o emparelhamento, podemos fazer uma comparação mais precisa.
+
+\section{Teste de Kolmogorov-Smirnov}
+O teste de Kolmogorov-Smirnov (KS) foi proposto por Andrey Kolmogorov (1903-1987) em 1933 e por Nikolai Smirnov (1900-1966) em 1939, de forma independente.
+
+Sendo um teste estatístico não paramétrico, ele é utilizado para verificar se uma amostra de dados segue uma distribuição teórica conhecida, como a Distribuição Normal, Exponencial ou Uniforme, por exemplo.
+
+O teste consiste em calcular a estatística de Kolmogorov-Smirnov (KS), que é a maior diferença absoluta entre as funções de distribuição acumulada empírica e teórica. Isto é,
+    $$
+    D_n = \max_x |F(x) - F_{\text{obs}}(x)|,
+    $$
+onde 
+    $$
+    F(x) = P(X \leq x)
+    $$
+é a distribuição acumulada do modelo teórico, enquanto que 
+    $$
+    F_{\text{obs}}(x)
+    $$ 
+é calculada a partir do conjunto de dados, sendo dada pela fração de observações menores do que $x$.
+
+Se ordenarmos as observações, de modo que 
+    $$
+    x_{(1)} < x_{(2)} < \ldots < x_{(n)},
+    $$ 
+então:
+    $$
+    F_{\text{obs}}(x_{(i)}) = \frac{i}{n}.
+    $$
+    
+O termo $x_{(i)}$ representa a i-ésima estatística de ordem, ou seja, o i-ésimo valor mais baixo em um conjunto de dados ordenados. Em outras palavras, é o i-ésimo menor valor em uma amostra de dados, onde $i$ varia de 1 a $n$, sendo $n$ o tamanho da amostra.
+
+Por exemplo, se tivermos o conjunto de dados 
+    $$
+    \{8, 3, 7, 5, 9, 11, 10\},
+    $$ 
+a primeira estatística de ordem seria 
+    $$
+    x_{(1)} = 3,
+    $$ 
+a segunda estatística de ordem seria 
+    $$
+    x_{(2)} = 5,
+    $$ 
+e assim por diante, até a sétima estatística de ordem, que seria 
+    $$
+    x_{(7)} = 11.
+    $$
+    
+Nosso objetivo no teste KS é comparar a distribuição dos dados com a distribuição associada à hipótese nula. Assim, a hipótese nula do teste afirma que a amostra segue a distribuição teórica, enquanto a hipótese alternativa diz que a amostra não segue essa distribuição. Ou seja,
+\begin{itemize}
+    \item $H_0$: os dados vieram da distribuição teórica.
+    \item $H_1$: os dados não vieram da distribuição teórica.
+\end{itemize}
+
+Para realizar esse teste de hipótese, precisamos calcular o valor $p$, que pode ser obtido através de simulações de Monte Carlo.
+
+O processo de simulação consiste em gerar diversas amostras aleatórias com o mesmo tamanho da amostra original a partir da distribuição teórica assumida na hipótese nula. Em seguida, é calculada a estatística KS para cada uma dessas amostras geradas. O valor $p$ é então estimado como a proporção de vezes que a estatística KS simulada é maior ou igual à estatística observada na amostra original. Quanto maior o valor $p$, mais favorável será a hipótese nula, ou seja, os dados provavelmente vieram do modelo assumido.
 
 \end{document}
